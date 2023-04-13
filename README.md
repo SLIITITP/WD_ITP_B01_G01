@@ -11,8 +11,8 @@ Please go under edit and edit this file as needed for your project
 ### Member 7 - IT21371622 (Hetti Hewa K.C.W.B.)
 ### Member 8 - IT21376054 (Herath A.M.A.D)
 
-#### Brief Description of Project - 
-#### Technologies used - 
+#### Brief Description of Project -  
+#### Technologies used - MERN Stack Technology
 
 Note - The student's github account should be given in brackets e.g. (asiriRepos), this ideally should be your student id 
 
