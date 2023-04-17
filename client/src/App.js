@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import NavBar from './pages/NavBar';
-import "./App.css"
-import "./index.css"
+import './App.css';
+import "./contact.css"
 
 export default class App extends Component {
   render() {
