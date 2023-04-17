@@ -5,7 +5,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import NavBar from './pages/NavBar';
 import './App.css';
-import "./contact.css"
+
+import Contact from './components/Contact'; 
 
 export default class App extends Component {
   render() {
@@ -15,7 +16,7 @@ export default class App extends Component {
     <NavBar />
           <Routes>
             <Route path="/" exact element={<Home />} />
-            
+            <Route path="/contact" exact element={<Contact />} />
           </Routes>
           {/* <Footer /> */}
         </div>
