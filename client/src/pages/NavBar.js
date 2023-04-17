@@ -20,13 +20,13 @@ export default function Navbar() {
                                 <a class="nav-link" href="/product">Spirits</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#services">Wine</a>
+                                <a class="nav-link" href="#">Wine</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#portfolio">Beer</a>
+                                <a class="nav-link" href="#">Beer</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#team">Champagne</a>
+                                <a class="nav-link" href="#">Champagne</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/contact">Contact</a>
