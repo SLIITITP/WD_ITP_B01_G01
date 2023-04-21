@@ -18,7 +18,7 @@ export default function Navbar() {
                 <a class="nav-link" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/product">Spirits</a>
+                <a class="nav-link" href="/informationForm">Spirits</a>
               </li> 
               <li class="nav-item">
                 <a class="nav-link" href="#services">Wine</a>
