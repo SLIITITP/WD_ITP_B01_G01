@@ -24,8 +24,8 @@ var corsOptions = {
 
 app.use(cors());
 
-const mongoURI = 'mongodb+srv://liquor:liquor123@cluster.bhzqpoq.mongodb.net/?retryWrites=true&w=majority';
-//const mongoURI = 'mongodb+srv://minsandi:minsandi123@mernapp.cnpzawc.mongodb.net/?retryWrites=true&w=majority';
+//const mongoURI = 'mongodb+srv://liquor:liquor123@cluster.bhzqpoq.mongodb.net/?retryWrites=true&w=majority';
+const mongoURI = 'mongodb+srv://minsandi:minsandi123@mernapp.cnpzawc.mongodb.net/?retryWrites=true&w=majority';
 
 
 const connectionParams = {
