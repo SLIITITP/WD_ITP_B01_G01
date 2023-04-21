@@ -1,25 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { Component } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Contact from './components/Contact';
+import ContactDisplay from './components/ContactDisplay';
+import NavBar from './components/NavBar';
+import Home from './components/Home';
+import Footer from './components/Footer';
+import ProductCard from "./components/ProductCard";
+import CartPage from "./components/cartPage";
+import InformationForm from './components/InformationForm';
+import DisplayInfo from './components/DisplayInfo';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+        <div className="container">
+
+          <NavBar />
+          <Routes>
+            <Route path="/" exact element={<Home />} />
+            <Route path="/contactdisplay/:id" exact element={<ContactDisplay />} />
+            <Route path="/contact" exact element={<Contact />} />
+            <Route exact path="/cart1" element={<ProductCard />} />
+          <Route path="/cart" element={<CartPage />} />
+
+          <Route path="/informationForm" exact element={<InformationForm />} />
+          <Route path="/DisplayInfo/:id" exact element={<DisplayInfo />} />
+          </Routes>
+          {/* <Footer /> */}
+        </div>
+      </BrowserRouter>
+    )
+  }
 }
-
-export default App;
