@@ -1,3 +1,4 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
 .App {
   text-align: center;
 }
@@ -36,3 +37,18 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+/* 
+navbar */
+.navbar{
+  background-color: #FFB400!important;
+}
+
+.nav-link{
+  color: black !important;
+}
+
+
