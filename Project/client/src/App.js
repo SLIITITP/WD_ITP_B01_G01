@@ -17,6 +17,8 @@ import AdminDashboard from './components/adminDashboard';
 import SupplierList from './components/SupplierList';
 import AddSupplier from './components/AddSupplier';
 
+
+
 export default class App extends Component {
   render() {
     return (
@@ -41,6 +43,8 @@ export default class App extends Component {
 
           <Route path="/SupplierList" exact element={<SupplierList/>}/>
           <Route path="/AddSupplier" exact element={<AddSupplier/>}/>
+          
+     
 
           
           

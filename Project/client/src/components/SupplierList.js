@@ -12,7 +12,7 @@ const SupplierList = () => {
                     <table class="table" >
                         <thead>
                             <tr className="table-dark" >
-                                <th scope="col"  >Supplier ID</th>
+                               
                                 <th scope="col" >Supplier Company Name</th>
                                 <th scope="col">Supplier Name</th>
                                 <th scope="col" >Address</th>
@@ -25,8 +25,8 @@ const SupplierList = () => {
                         </thead>
                         <tbody>
                             <tr >
-                                <th scope="row">1</th>
-                                <td>W.M. Mendis & Co. Limited</td>
+                                
+                                <td scope="row">W.M. Mendis & Co. Limited</td>
                                 <td>Sunil De Silva</td>
                                 <td>309/5 Negombo Rd, Welisara</td>
                                 <td>wmmendis@gmail.com</td>
@@ -40,8 +40,8 @@ const SupplierList = () => {
                                 </td>
                             </tr>
                             <tr >
-                                <th scope="row">2</th>
-                                <td>Periceyl</td>
+                                
+                                <td scope="row">Periceyl</td>
                                 <td>Saliya Yalapola</td>
                                 <td>128 Vipulasena Mawatha,Colombo</td>
                                 <td>Periceylvcm@gmail.com</td>
@@ -56,8 +56,8 @@ const SupplierList = () => {
                                 </td>
                             </tr>
                             <tr >
-                                <th scope="row">3</th>
-                                <td>Fine Spirits</td>
+                               
+                                <td scope="row">Fine Spirits</td>
                                 <td>Tharindu Yapa</td>
                                 <td>353 Dr.Colvin R.de Silva Mawatha,Colombo </td>
                                 <td>fspirits@gmail.com</td>
@@ -72,8 +72,8 @@ const SupplierList = () => {
                                 </td>
                             </tr>
                             <tr >
-                                <th scope="row">4</th>
-                                <td>Dcsl</td>
+                               
+                                <td scope="row">Dcsl</td>
                                 <td>Ashan Herath</td>
                                 <td>W348+P4C,Hanwella</td>
                                 <td>dcsl@gmail.com</td>
