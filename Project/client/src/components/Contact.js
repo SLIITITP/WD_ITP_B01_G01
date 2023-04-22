@@ -1,6 +1,5 @@
 
 
-
 // import React, { Component } from "react";
 // import axios from 'axios';
 // import "./contact.css"
@@ -43,7 +42,7 @@
 //             if (res.data.success) {
 //                 console.log(res.data.success._id);
 //                 var id=res.data.success._id
-//            window.location.href=`/contactdisplay/${id}`;
+//            window.location.href='/contactdisplay/:id';
 
 //                 this.setState(
 //                     {
@@ -71,17 +70,13 @@
 //                         <div class="row">
 //                             <div class="col-lg-4 col-md-12 col-12">
 //                                 <div class="about-img">
-//                                     <img src="https://images.pexels.com/photos/13927674/pexels-photo-13927674.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" class="img-fluid" />
+//                                     <img src="https://images.pexels.com/photos/3636002/pexels-photo-3636002.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" class="img-fluid" />
 //                                 </div>
 //                             </div>
 //                             <div class="col-lg-8 col-md-12 col-12 ps-lg-5 mt-md-5">
 //                                 <div class="about-text">
 //                                     <h2>ABOUT</h2>
-//                                     <p>The Story of Supreme Wine Stores is that are covering at least 560 places
-//                                          around it which opened its doors in 2018, is a great
-//                                          story of continuous product improvement and the highest quality standards of liquor products.</p>
-//                                         <p> In here, Customers can visit to their liquor store and choose different types of
-//                                         liquor products such as wines, beers, vodka, gin etc and buy those products manually.</p>
+//                                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam, labore reiciendis. Assumenda eos quod animi! Soluta nesciunt inventore dolores excepturi provident, culpa beatae tempora, explicabo corporis quibusdam corrupti. Autem, quaerat. Assumenda quo aliquam vel, nostrum explicabo ipsum dolor, ipsa perferendis porro doloribus obcaecati placeat natus iste odio est non earum?</p>
 //                                     <p>Address: ghvgvhvgvvhgvhg</p>
 //                                     <p>Phone: 0915676543</p>
 //                                     <p>Email: suprime@gmail.com</p>
@@ -114,7 +109,7 @@
 
 
 //                         <button className="btn btn-primary" type="submit" style={{ marginTop: '15px' }} onClick={this.onSubmit}>
-//                             <i className="far fa-check-square"></i> Submit</button><br />
+//                             <i className="far fa-check-square"></i><a href={'/contactdisplay/:id'}> Submit</a></button><br />
 
                             
 
@@ -150,6 +145,7 @@
 //         )
 //     }
 // }
+
 
 
 import React, { Component } from "react";
@@ -190,7 +186,7 @@ export default class Contact extends Component {
         }
         console.log(data);
 
-        axios.post("/post", data).then((res) => {
+        axios.post("/contact/post", data).then((res) => {
             if (res.data.success) {
                 console.log(res.data.success._id);
                 var id=res.data.success._id
@@ -301,19 +297,3 @@ export default class Contact extends Component {
         )
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
