@@ -1,12 +1,12 @@
 /* import url font size and style */
 
 body {
-  margin: 0;
+  margin: 0; 
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; 
 }
 
 code {
@@ -33,10 +33,21 @@ h1{
   display: flex !important;
 }
 
-.btn{
+ /*.btn{
   background-color: #FFB400 !important;
   color: white !important;
+  border: none !important;
+  margin-left: 3px;
+} */
+
+.table{
+  margin-top: 20px;
+  text-align: center;
+  text-indent: 5px;
+  
+
 }
+
 
 select{
   box-shadow: none !important;

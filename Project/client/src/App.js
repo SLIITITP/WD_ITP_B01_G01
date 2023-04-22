@@ -10,6 +10,10 @@ import ProductCard from "./components/ProductCard";
 import CartPage from "./components/cartPage";
 import InformationForm from './components/InformationForm';
 import DisplayInfo from './components/DisplayInfo';
+import Inventory from './components/inventory';
+import InventoryDetail from './components/inventoryDetail';
+import AddProduct from './components/addProduct';
+import AdminDashboard from './components/adminDashboard';
 
 export default class App extends Component {
   render() {
@@ -27,8 +31,16 @@ export default class App extends Component {
 
           <Route path="/informationForm" exact element={<InformationForm />} />
           <Route path="/DisplayInfo/:id" exact element={<DisplayInfo />} />
+
+          <Route path="/inventory" exact element={<Inventory />} />
+          <Route path="/inventoryDetail" exact element={<InventoryDetail />} />
+          <Route path="/addProduct" exact element={<AddProduct />} />
+          <Route path="/adminDashboard" exact element={<AdminDashboard />} />
+          
+          
           </Routes>
-          {/* <Footer /> */}
+          {/* <Footer />  */}
+          
         </div>
       </BrowserRouter>
     )
