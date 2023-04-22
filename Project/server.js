@@ -5,8 +5,15 @@ const cors = require('cors');
 
 const app = express();
 
+<<<<<<< HEAD
+const postRoutes = require('./routes/posts');
+const router = require("./routes/router");
+const products = require("./models/productSchema");
+
+=======
 // const postRoutes = require('./routes/posts');
 // const detailsRoutes = require('./routes/details');
+>>>>>>> adcd54c583fa9f13ab4bdfe3cbc96c8dc73f7f05
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -15,6 +22,14 @@ app.use(cors());
 //app.use(detailsRoutes);
 
 app.use(cors());
+app.get("/inventory",(req,res)=>{
+    res.json("server start")
+})
+
+app.use(router);
+
+
+
 mongoose.set('strictQuery', true);
 const port = 8000;
 const url = 'mongodb+srv://minsandi:minsandi123@mernapp.cnpzawc.mongodb.net/?retryWrites=true&w=majority'
