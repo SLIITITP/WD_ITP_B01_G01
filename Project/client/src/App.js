@@ -14,6 +14,8 @@ import Inventory from './components/inventory';
 import InventoryDetail from './components/inventoryDetail';
 import AddProduct from './components/addProduct';
 import AdminDashboard from './components/adminDashboard';
+import EditProduct from './components/EditProduct';
+
 
 export default class App extends Component {
   render() {
@@ -36,6 +38,8 @@ export default class App extends Component {
           <Route path="/inventoryDetail" exact element={<InventoryDetail />} />
           <Route path="/addProduct" exact element={<AddProduct />} />
           <Route path="/adminDashboard" exact element={<AdminDashboard />} />
+          <Route exact path="/EditProduct/:id" component={EditProduct} />
+          
           
           
           </Routes>

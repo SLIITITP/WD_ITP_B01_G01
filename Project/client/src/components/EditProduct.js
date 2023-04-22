@@ -1,16 +1,21 @@
 import React from 'react'
 import './form.css'
 
-const addProduct = () => {
+
+const EditProduct = () => {
 
    
 
-    return (
+
+
+
+  return (
+    <div>
         <div className='container'>
             <a href="/inventoryDetail"><button className='backBtn'>All Products</button></a>
             
             <form className="create" >
-            <h3>Add New Product</h3>
+            <h3>Update Product</h3>
 
             <label>Product Name: </label>
             <input 
@@ -30,14 +35,14 @@ const addProduct = () => {
             <input 
                 type="number"
                 name="price"
-               
+                
             />
 
             <label>Quantity: </label>
             <input 
                 type="number"
                 name="quantity"
-              
+               
                 
             />
 
@@ -45,7 +50,7 @@ const addProduct = () => {
             <input 
                 type="number"
                 name="capacity"
-               
+                
 
                 
             />
@@ -54,7 +59,7 @@ const addProduct = () => {
             <input 
                 type="text"
                 name="material"
-               
+                
 
                 
             />
@@ -63,7 +68,7 @@ const addProduct = () => {
             <input 
                 type="number"
                 name="percentage"
-               
+                
                 
             />
 
@@ -79,16 +84,17 @@ const addProduct = () => {
             <input
                 type="text"
                 name="image"
-                
+               
             />
 
-            <center><button className='formBtn' type="submit" >Add Product</button></center>
+            <center><button className='formBtn' type="submit">Update Product</button></center>
 
             
             
         </form>
         </div>
-    )
+    </div>
+  )
 }
 
-export default addProduct
+export default EditProduct

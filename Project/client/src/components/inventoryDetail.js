@@ -1,8 +1,23 @@
 import React from 'react'
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import CreateIcon from '@mui/icons-material/Create';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+
+
+
 
 
 const inventoryDetail = () => {
+
+    
+
+    
+
+
     return (
+
+       
+
         <div className='mt-5'>
             <div className="container">
                 <div className="add_btn mt-2 mb-2">
@@ -12,6 +27,7 @@ const inventoryDetail = () => {
                     <table class="table" >
                         <thead>
                             <tr className="table-dark" >
+                                <th scope="col">id</th>
                                 <th scope="col"  >Name</th>
                                 <th scope="col" >Category</th>
                                 <th scope="col">Price(LKR)</th>
@@ -25,70 +41,28 @@ const inventoryDetail = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr >
-                                <th scope="row">Cape Dreams</th>
-                                <td>Wine</td>
-                                <td>5200</td>
-                                <td>10</td>
-                                <td>750</td>
-                                <td>Cabernet Sauvignon</td>
-                                <td>14.5</td>
-                                <td>South Africa</td>
-                                <td>https://ceylonspirits.lk/wp-content/uploads/2021/03/Cape-Dreams-Cabernet-Sauvignon.jpg</td>
-                                <td className="d-flex justify-content-between" >
-                                    <button className="btn btn-success" style={{ marginLeft: '3px' }} ><i class="fas fa-eye" ></i></button>
-                                    <button className="btn btn-primary" style={{ marginLeft: '3px' }}><i class="fa-solid fa-pen"></i></button>
-                                    <button className="btn btn-danger" style={{ marginLeft: '3px' }}><i class="fa-solid fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr >
-                                <th scope="row">Cape Dreams</th>
-                                <td>Wine</td>
-                                <td>5200</td>
-                                <td>10</td>
-                                <td>750</td>
-                                <td>Cabernet Sauvignon</td>
-                                <td>14.5</td>
-                                <td>South Africa</td>
-                                <td>https://ceylonspirits.lk/wp-content/uploads/2021/03/Cape-Dreams-Cabernet-Sauvignon.jpg</td>
-                                <td className="d-flex justify-content-between" >
-                                    <button className="btn btn-success" style={{ marginLeft: '3px' }} ><i class="fas fa-eye" ></i></button>
-                                    <button className="btn btn-primary" style={{ marginLeft: '3px' }}><i class="fa-solid fa-pen"></i></button>
-                                    <button className="btn btn-danger" style={{ marginLeft: '3px' }}><i class="fa-solid fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr >
-                                <th scope="row">Cape Dreams</th>
-                                <td>Wine</td>
-                                <td>5200</td>
-                                <td>10</td>
-                                <td>750</td>
-                                <td>Cabernet Sauvignon</td>
-                                <td>14.5</td>
-                                <td>South Africa</td>
-                                <td>https://ceylonspirits.lk/wp-content/uploads/2021/03/Cape-Dreams-Cabernet-Sauvignon.jpg</td>
-                                <td className="d-flex justify-content-between" >
-                                    <button className="btn btn-success" style={{ marginLeft: '3px' }} ><i class="fas fa-eye" ></i></button>
-                                    <button className="btn btn-primary" style={{ marginLeft: '3px' }}><i class="fa-solid fa-pen"></i></button>
-                                    <button className="btn btn-danger" style={{ marginLeft: '3px' }}><i class="fa-solid fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr >
-                                <th scope="row">Cape Dreams</th>
-                                <td>Wine</td>
-                                <td>5200</td>
-                                <td>10</td>
-                                <td>750</td>
-                                <td>Cabernet Sauvignon</td>
-                                <td>14.5</td>
-                                <td>South Africa</td>
-                                <td>https://ceylonspirits.lk/wp-content/uploads/2021/03/Cape-Dreams-Cabernet-Sauvignon.jpg</td>
-                                <td className="d-flex justify-content-between" >
-                                    <button className="btn btn-success" style={{ marginLeft: '3px' }} ><i class="fas fa-eye" ></i></button>
-                                    <button className="btn btn-primary" style={{ marginLeft: '3px' }}><i class="fa-solid fa-pen"></i></button>
-                                    <button className="btn btn-danger" style={{ marginLeft: '3px' }}><i class="fa-solid fa-trash"></i></button>
-                                </td>
-                            </tr>
+                        
+                                
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>aaaa</td>
+                                                <td>bbb</td>
+                                                <td>ccc</td>
+                                                <td>ddd</td>
+                                                <td>fff</td>
+                                                <td>ggg</td>
+                                                <td>hhh</td>
+                                                <td>iii</td>
+                                                <td>jjj</td>
+                                                <td className="d-flex justify-content-between">
+                                                    <button className="btn btn-success"><CreateIcon /></button>
+
+                                                    <button className="btn btn-primary"><RemoveRedEyeIcon /></button>
+                                                    
+                                                </td>
+                                            </tr>
+                                        
+                            
                         </tbody>
                     </table>
                 </div>
@@ -96,7 +70,7 @@ const inventoryDetail = () => {
         </div>
 
 
-
+      
 
     )
 }
