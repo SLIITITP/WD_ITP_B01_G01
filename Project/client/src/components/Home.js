@@ -123,6 +123,31 @@ export default function Home() {
           </div>
       </section>
 
+      <div>
+      
+            <div class="nav1">
+            
+              
+               
+                <div class="text-center p-3" >
+                    <div class="footerText">
+                  © 2021 Copyright:
+                  
+                  <a class="text-white" href="#"> suprime.com</a>
+                  <a href='/adminDashboard'><button class="adminBtn"><i class="fa-solid fa-user"></i></button></a>
+                </div>
+                
+               
+                  
+                  
+                </div>
+                
+             
+            
+            </div>
+            
+                    </div>
+
 
 
 

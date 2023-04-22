@@ -38,6 +38,8 @@ export default function Navbar() {
               <li class="nav-item">
                 <a class="nav-link" href="/informationForm">Cart</a>
               </li>
+             
+              
               
                      
             </ul>
