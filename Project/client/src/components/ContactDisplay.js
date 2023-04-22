@@ -26,7 +26,7 @@ class ContactDisplay extends Component {
   componentDidMount() {
     console.log(this.state.id);
     const id = this.state.id
-    axios.get(`/post/${id}`).then((res) => {
+    axios.get(`/contact/post/${id}`).then((res) => {
       console.log(res.data.post);
       if (res.data.success) {
         this.setState({
@@ -70,7 +70,7 @@ class ContactDisplay extends Component {
     }
 
 
-    axios.put(`/post/${id}`, data).then((res) => {
+    axios.put(`/contact/post/${id}`, data).then((res) => {
       if (res.data.success) {
         console.log(res.data.success._id);
         alert("Updated Successfully");
@@ -93,7 +93,7 @@ class ContactDisplay extends Component {
 
   onDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this?")) {
-      axios.delete(`/post/${id}`).then((res) => {
+      axios.delete(`/contact/post/${id}`).then((res) => {
         alert("Delete Successfully");
         this.retrievePosts();
       });

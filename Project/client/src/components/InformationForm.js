@@ -8,7 +8,7 @@ export default class InformationForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            posts: [],
+            details: [],
             name: '',
             address: '',
             email: '',
@@ -44,7 +44,7 @@ export default class InformationForm extends Component {
         }
         console.log(data);
 
-        axios.post("/post", data).then((res) => {
+        axios.post("/informationForm/post", data).then((res) => {
             if (res.data.success) {
                 console.log(res.data.success._id);
                 var id = res.data.success._id
