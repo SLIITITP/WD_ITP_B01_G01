@@ -15,6 +15,7 @@ import InventoryDetail from './components/inventoryDetail';
 import AddProduct from './components/addProduct';
 import AdminDashboard from './components/adminDashboard';
 import SupplierList from './components/SupplierList';
+import AddSupplier from './components/AddSupplier';
 
 export default class App extends Component {
   render() {
@@ -39,6 +40,8 @@ export default class App extends Component {
           <Route path="/adminDashboard" exact element={<AdminDashboard />} />
 
           <Route path="/SupplierList" exact element={<SupplierList/>}/>
+          <Route path="/AddSupplier" exact element={<AddSupplier/>}/>
+
           
           
           </Routes>

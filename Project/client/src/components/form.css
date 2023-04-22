@@ -7,7 +7,7 @@ label, input {
     color: var(--primary);
     
   }
-  input {
+  input , select {
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 20px;
@@ -67,3 +67,5 @@ label, input {
     border-radius: 10px;
     
   }
+  
+ 
