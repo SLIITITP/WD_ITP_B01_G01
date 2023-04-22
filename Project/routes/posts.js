@@ -19,6 +19,8 @@ router.post('/post', (req, res) => {
 });
 
 
+
+
 //get post
 router.get('/posts', (req, res) => {
     posts.find().exec((err, posts) => {

@@ -5,13 +5,15 @@ const cors = require('cors');
 
 const app = express();
 
-const postRoutes = require('./routes/posts');
-
+// const postRoutes = require('./routes/posts');
+// const detailsRoutes = require('./routes/details');
 
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use(postRoutes);
+//app.use(postRoutes);
+//app.use(detailsRoutes);
+
 app.use(cors());
 mongoose.set('strictQuery', true);
 const port = 8000;
@@ -29,4 +31,11 @@ app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
 
+const postRoutes = require('./routes/posts');
+app.use('/contact', postRoutes);
 
+const detailsRoutes = require('./routes/details');
+app.use('/informationForm', detailsRoutes); 
+
+
+app.use('/DisplayInfo', detailsRoutes);

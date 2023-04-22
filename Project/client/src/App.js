@@ -6,8 +6,6 @@ import ContactDisplay from './components/ContactDisplay';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Footer from './components/Footer';
-import ProductCard from "./components/ProductCard";
-import CartPage from "./components/cartPage";
 import InformationForm from './components/InformationForm';
 import DisplayInfo from './components/DisplayInfo';
 import Inventory from './components/inventory';
@@ -30,9 +28,8 @@ export default class App extends Component {
             <Route path="/" exact element={<Home />} />
             <Route path="/contactdisplay/:id" exact element={<ContactDisplay />} />
             <Route path="/contact" exact element={<Contact />} />
-            <Route exact path="/cart1" element={<ProductCard />} />
-          <Route path="/cart" element={<CartPage />} />
-
+          
+   
           <Route path="/informationForm" exact element={<InformationForm />} />
           <Route path="/DisplayInfo/:id" exact element={<DisplayInfo />} />
 

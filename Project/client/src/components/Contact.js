@@ -186,7 +186,7 @@ export default class Contact extends Component {
         }
         console.log(data);
 
-        axios.post("/post", data).then((res) => {
+        axios.post("/contact/post", data).then((res) => {
             if (res.data.success) {
                 console.log(res.data.success._id);
                 var id=res.data.success._id
