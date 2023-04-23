@@ -278,9 +278,6 @@ class DisplayInfo extends Component {
     return (
 <div>
 
-  
-      
-
         <h2>Your Details</h2>
         <form>
 
@@ -322,7 +319,6 @@ class DisplayInfo extends Component {
         </form>
 
       </div>
-
 
 
 
