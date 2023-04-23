@@ -14,6 +14,7 @@ import AddProduct from './components/addProduct';
 import AdminDashboard from './components/adminDashboard';
 import SupplierList from './components/SupplierList';
 import AddSupplier from './components/AddSupplier';
+import EditSupplier from './components/EditSupplier';
 
 
 
@@ -40,10 +41,7 @@ export default class App extends Component {
 
           <Route path="/SupplierList" exact element={<SupplierList/>}/>
           <Route path="/AddSupplier" exact element={<AddSupplier/>}/>
-          
-     
-
-          
+         <Route path="/EditSupplier/:id" exact element={<EditSupplier/>}/>
           
           </Routes>
           {/* <Footer />  */}

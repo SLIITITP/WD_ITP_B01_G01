@@ -39,3 +39,16 @@ app.use('/informationForm', detailsRoutes);
 
 
 app.use('/DisplayInfo', detailsRoutes);
+
+const supplierRoutes = require('./routes/supplier');
+app.use('/AddSupplier', supplierRoutes);
+
+app.use('/EditSupplier', supplierRoutes);
+app.use('/SupplierList', supplierRoutes);
+
+
+
+
+
+
+

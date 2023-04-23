@@ -1,102 +1,234 @@
-import React from 'react'
+// import React from 'react'
 
 
-const SupplierList = () => {
-    return (
-        <div className='mt-5'>
-            <div className="container">
+// const SupplierList = () => {
+//     return (
+//         <div className='mt-5'>
+//             <div className="container">
+//                 <div className="add_btn mt-2 mb-2">
+//                 <a href="/AddSupplier"><button className='backBtn'>Add Supplier</button></a>
+//                 </div>
+//                 <div className="table-responsive">
+//                     <table class="table" >
+//                         <thead>
+//                             <tr className="table-dark" >
+                               
+//                                 <th scope="col" >Supplier Company Name</th>
+//                                 <th scope="col">Supplier Name</th>
+//                                 <th scope="col" >Address</th>
+//                                 <th scope="col" >Email</th>
+//                                 <th scope="col" >Website</th>
+//                                 <th scope="col" >Phone</th>
+//                                 <th scope="col" >Status</th>
+//                                 <th scope="col" >Action</th>
+//                             </tr>
+//                         </thead>
+//                         <tbody>
+                           
+//                         </tbody>
+//                     </table>
+//                 </div>
+//             </div>
+//         </div>
+
+
+
+
+//     )
+// }
+
+// export default SupplierList;
+
+
+
+
+
+
+
+
+
+
+import React, {Component} from 'react';
+import axios from 'axios';
+import {useParams, useLocation,Link} from "react-router-dom";
+function withParams(Component) {
+    return props => <Component params={
+        useParams()
+    }/>
+}
+
+class SupplierList extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.status = "";
+
+        this.state = {
+            id: props.params.id,
+            supplier: []
+        };
+
+    }
+
+    componentDidMount() {
+        this.retrievePosts();
+
+    }
+
+    retrievePosts() {
+        axios.get("/AddSupplier/posts").then(res => {
+            if (res.data.success) {
+                this.setState({supplier: res.data.existingPosts});
+                console.log(this.state.supplier)
+            }
+        });
+    }
+
+
+    // edit
+    handleChange = (e) => {
+        const {name, value} = e.target;
+
+        this.setState({
+            ...this.state,
+            [name]: value
+        });
+        this.status = value;
+    }
+
+    // onSave = (id) => {
+
+
+    //     let data = this.state.posts.filter((post) => post._id === id)[0];
+    //     data.status = this.status;
+
+
+    //     axios.put(`/post/${id}`, data).then((res) => {
+    //         if (res.data.success) {
+    //             console.log(res.data.success._id);
+    //             alert("Updated Successfully");
+    //             var id = res.data.success._id
+
+
+    //             this.setState({
+    //                 name: "",
+    //                 email: "",
+    //                 message: "",
+    //                 address: "",
+    //                 town: "",
+    //                 phone: ""
+    //             })
+    //         }
+    //     })
+    // }
+
+   onDelete = (id) => {
+  if (window.confirm("Are you sure you want to delete this?")) {
+    axios.delete(`/AddSupplier/post/${id}`).then((res) => {
+      alert("Delete Successfully");
+      this.retrievePosts();
+});
+}
+};
+
+
+    render() {
+        return (
+           
+            <div className='mt-5'>
+          <div className="container">
                 <div className="add_btn mt-2 mb-2">
                 <a href="/AddSupplier"><button className='backBtn'>Add Supplier</button></a>
                 </div>
                 <div className="table-responsive">
-                    <table class="table" >
-                        <thead>
+                     <table class="table" >
+                         <thead>
                             <tr className="table-dark" >
-                               
-                                <th scope="col" >Supplier Company Name</th>
+                            <th scope="col" >ID</th>
+                                 <th scope="col" >Supplier Company Name</th>
                                 <th scope="col">Supplier Name</th>
                                 <th scope="col" >Address</th>
                                 <th scope="col" >Email</th>
                                 <th scope="col" >Website</th>
-                                <th scope="col" >Phone</th>
-                                <th scope="col" >Status</th>
-                                <th scope="col" >Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr >
-                                
-                                <td scope="row">W.M. Mendis & Co. Limited</td>
-                                <td>Sunil De Silva</td>
-                                <td>309/5 Negombo Rd, Welisara</td>
-                                <td>wmmendis@gmail.com</td>
-                                <td>www.wmmendis.com</td>
-                                <td>0114692300</td>
-                                <td>Active</td>
-                                <td className="d-flex justify-content-between" >
-                                    <button className="btn btn-success" style={{ marginLeft: '3px' }} ><i class="fas fa-eye" ></i></button>
-                                    <button className="btn btn-primary" style={{ marginLeft: '3px' }}><i class="fa-solid fa-pen"></i></button>
-                                    <button className="btn btn-danger" style={{ marginLeft: '3px' }}><i class="fa-solid fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr >
-                                
-                                <td scope="row">Periceyl</td>
-                                <td>Saliya Yalapola</td>
-                                <td>128 Vipulasena Mawatha,Colombo</td>
-                                <td>Periceylvcm@gmail.com</td>
-                                <td>www.Periceyl.com</td>
-                                <td>0115635707</td>
-                                <td>Active</td>
-                                
-                                <td className="d-flex justify-content-between" >
-                                    <button className="btn btn-success" style={{ marginLeft: '3px' }} ><i class="fas fa-eye" ></i></button>
-                                    <button className="btn btn-primary" style={{ marginLeft: '3px' }}><i class="fa-solid fa-pen"></i></button>
-                                    <button className="btn btn-danger" style={{ marginLeft: '3px' }}><i class="fa-solid fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr >
-                               
-                                <td scope="row">Fine Spirits</td>
-                                <td>Tharindu Yapa</td>
-                                <td>353 Dr.Colvin R.de Silva Mawatha,Colombo </td>
-                                <td>fspirits@gmail.com</td>
-                                <td>www.fns.com</td>
-                                <td>0112303273</td>
-                                <td>Inactive</td>
-                                
-                                <td className="d-flex justify-content-between" >
-                                    <button className="btn btn-success" style={{ marginLeft: '3px' }} ><i class="fas fa-eye" ></i></button>
-                                    <button className="btn btn-primary" style={{ marginLeft: '3px' }}><i class="fa-solid fa-pen"></i></button>
-                                    <button className="btn btn-danger" style={{ marginLeft: '3px' }}><i class="fa-solid fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr >
-                               
-                                <td scope="row">Dcsl</td>
-                                <td>Ashan Herath</td>
-                                <td>W348+P4C,Hanwella</td>
-                                <td>dcsl@gmail.com</td>
-                                <td> www.dcsl.com</td>
-                                <td>01178451880</td>
-                                <td>Active</td>
-                              
-                                <td className="d-flex justify-content-between" >
-                                    <button className="btn btn-success" style={{ marginLeft: '3px' }} ><i class="fas fa-eye" ></i></button>
-                                    <button className="btn btn-primary" style={{ marginLeft: '3px' }}><i class="fa-solid fa-pen"></i></button>
-                                    <button className="btn btn-danger" style={{ marginLeft: '3px' }}><i class="fa-solid fa-trash"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+                                 <th scope="col" >Phone</th>
+                                 <th scope="col" >Status</th>
+                                 <th scope="col" ></th>
+                                 <th scope="col" >Action</th>
+                             </tr>
+                         </thead>
+                         <tbody> {
+                            this.state.supplier.map((supplier, index) => (
+                                <tr key={index}>
+
+                                    <th scope="row">
+                                        {
+                                        index + 1
+                                    }</th>
+
+                                    <td> {
+                                        supplier.snname
+                                    }</td>
+
+                                    <td>{
+                                        supplier.sname
+                                    }</td>
+
+                                    <td>{
+                                        supplier.address
+                                    }</td>
+
+                                    <td>{
+                                        supplier.email
+                                    }</td>
+
+                                    <td>{
+                                        supplier.website
+                                    }</td>
+
+                                    <td>{
+                                        supplier.phone
+                                    }</td>
+
+                                    <td>{
+                                        supplier.status
+                                    }</td>
 
 
 
+                                    <td onClick={
+                                        () => this.onDelete(supplier._id)
+                                    }>
+                                        <a className="btn btn-danger">
+                                            <i className="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
 
-    )
+                                    <td>
+                                        <a href={`/EditSupplier/${supplier._id}`} className="btn btn-success">
+                                        <i className="fas fa-edit"></i>
+                                        </a>
+                                    </td>
+
+                                    {/* <td >
+                                        <a component={Link} to={`/EditSupplier/${supplier._id}`} className="btn btn-success">
+                                            <i className="fas fa-edit"></i>
+                                        </a>
+                                    </td> */}
+
+
+                                </tr>
+                            ))
+                        } </tbody>
+
+                         
+                     </table>
+                 </div>
+             </div>
+         </div>
+          
+        )
+    }
 }
 
-export default SupplierList;
+export default withParams(SupplierList);
