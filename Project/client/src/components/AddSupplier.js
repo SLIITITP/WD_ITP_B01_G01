@@ -8,8 +8,8 @@ export default class AddSupplier extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            suplier: [],
-            snnname: '',
+            supplier: [],
+            snname: '',
             sname: '',
             address: '',
             email: '',
@@ -60,7 +60,7 @@ export default class AddSupplier extends Component {
                         email: "",
                         website: "",
                         phone: "",
-                        status:''
+                        status:""
                     }
                 )
             }
@@ -68,9 +68,12 @@ export default class AddSupplier extends Component {
 
     }
 
+
+
  render(){
     return (
         <div className='container'>
+            <a href="/adminDashboard"><button className='backBtn'>Back to Dashboard</button></a>
             <a href="/SupplierList"><button className='backBtn'>Supplier List</button></a>
             
             <form className="create" >
@@ -102,12 +105,21 @@ export default class AddSupplier extends Component {
                          onChange={this.handleChange} id="formGroupExampleInput"  />
 
             <label>Status: </label>
+            <input type="status" name="status" value={this.state.status}
+                         onChange={this.handleChange} id="formGroupExampleInput"  />
             
-            <select onChange={this.handleChange} id="formGroupExampleInput" value={this.state.status}  name="status">
-                <option value="active">Active</option>
-                <option value="Inactive">Inactive</option>
+           
+             {/* <label>Car Make</label>
+          <select id="carMake" placeholder="Search by tags" value={this.props.carMake} onChange={this.changeOption.bind(this, 'carMake')}>
 
-            </select>
+          {this.props.carMakeOptions.map(option => (<option key={option} value={option}>{option}</option> ))}
+          </select>
+
+          <label>Model</label>
+          <select id="model" value={this.props.model} onChange={this.changeOption.bind(this, 'model')}>
+
+          {this.props.modelOptions.map(option => (<option key={option} value={option}>{option}</option> ))}
+          </select> */}
 
          
             <center><button className='formBtn' type="submit" onClick={this.onSubmit}>Add Supplier</button></center>
@@ -120,6 +132,3 @@ export default class AddSupplier extends Component {
 }
 
  }
-   
-
-//export default AddSupplier;

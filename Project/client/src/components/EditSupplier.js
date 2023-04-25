@@ -14,7 +14,7 @@ class EditSupplier extends Component {
     this.state = {
       id: props.params.id,
       supplier: [],
-      snnname: '',
+      snname: '',
       sname: '',
       address: '',
       email: '',
@@ -63,7 +63,8 @@ class EditSupplier extends Component {
       email: email.length != 0 ? email : data.email,
       website: website.length != 0 ? website : data.website,
       phone: phone.length != 0 ? phone : data.phone,
-      status: status.length != 0 ? status : data.status
+      status: status.length != 0 ? status : data.status,
+      
     }
 
 
@@ -72,7 +73,7 @@ class EditSupplier extends Component {
         console.log(res.data.success._id);
         alert("Updated Successfully");
         var id = res.data.success._id
-        //window.location.href=`/contactdisplay/${id}`;
+        window.location.href = `/SupplierList`;
 
         this.setState(
           {
@@ -82,7 +83,7 @@ class EditSupplier extends Component {
                 email: '',
                 website: '',
                 phone: '',
-                status: '',
+                status: ''
           }
         )
       }
@@ -94,7 +95,7 @@ class EditSupplier extends Component {
 
   onDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this?")) {
-      axios.delete(`/contact/post/${id}`).then((res) => {
+      axios.delete(`/SupplierList/post/${id}`).then((res) => {
         alert("Delete Successfully");
         this.retrievePosts();
       });
@@ -107,10 +108,12 @@ class EditSupplier extends Component {
     const { _id, snname, sname, address, email, website, phone,status  } = this.state.supplier;
     return (
         <div className='container'>
+        <a href="/adminDashboard"><button className='backBtn'>Back to Dashboard</button></a>
         <a href="/SupplierList"><button className='backBtn'>Supplier List</button></a>
         
         <form className="create" >
-        <h3>Add New Supplier</h3>
+        <h3>Update Supplier</h3>
+
 
         
         {/* <label>ID: </label>
@@ -120,7 +123,7 @@ class EditSupplier extends Component {
 
 
         <label>Supplier Company Name: </label>
-        <input type="text" name="snname" value={this.state.snnname}
+        <input type="text" name="snname" value={this.state.snname}
                      onChange={this.handleChange} id="formGroupExampleInput" placeholder={snname}  />
        
 
@@ -145,12 +148,9 @@ class EditSupplier extends Component {
                      onChange={this.handleChange} id="formGroupExampleInput"  placeholder={phone}/>
 
         <label>Status: </label>
-        
-        <select onChange={this.handleChange} id="formGroupExampleInput" value={this.state.status}  name="status" placeholder={status}>
-            <option value="active">Active</option>
-            <option value="Inactive">Inactive</option>
-
-        </select>
+        <input type="text" name="status" value={this.state.status}
+                     onChange={this.handleChange} id="formGroupExampleInput"  placeholder={status}/>
+       
 
      
         <center><a href='/SupllierList'><button className='formBtn' type="submit" onClick={this.onSubmit}>Update Supplier</button></a></center>

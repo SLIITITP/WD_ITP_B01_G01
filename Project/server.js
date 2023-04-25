@@ -2,12 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+// const nodemailer = require('nodemailer');
 
 const app = express();
 
 // const postRoutes = require('./routes/posts');
 // const detailsRoutes = require('./routes/details');
-
+app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -43,8 +44,16 @@ app.use('/DisplayInfo', detailsRoutes);
 const supplierRoutes = require('./routes/supplier');
 app.use('/AddSupplier', supplierRoutes);
 
-app.use('/EditSupplier', supplierRoutes);
+
 app.use('/SupplierList', supplierRoutes);
+app.use('/EditSupplier', supplierRoutes);
+
+
+const orderRoutes = require('./routes/order');
+app.use('/AddOrder', orderRoutes);
+
+app.use('/OrderList', orderRoutes);
+app.use('/EditOrder', orderRoutes);
 
 
 
