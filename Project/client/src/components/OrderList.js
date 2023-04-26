@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
-import { jsPDF } from "jspdf";
-import "jspdf-autotable";
-
 function withParams(Component) {
     return props => <Component params={
         useParams()
@@ -19,8 +16,8 @@ class OrderList extends Component {
 
         this.state = {
             id: props.params.id,
-            order: []
-            
+            order: [],
+            searchKey: "",
         };
 
     }
@@ -86,8 +83,32 @@ class OrderList extends Component {
     };
 
 
+    //search part
+    handleSearchKeyChange = (e) => {
+        const searchKey = e.currentTarget.value;
+        this.setState({ searchKey });
+        this.filterData(this.state.order, searchKey);
+    };
+
+    filterData(posts, searchkey) {
+        const result = posts.filter((post) =>
+            post.snname.toLowerCase().includes(searchkey.toLowerCase())
+        );
+        this.setState({ order: result });
+    }
+
+    resetSearch = () => {
+        this.setState({ searchKey: "" }, () => {
+            this.retrievePosts();
+        });
+    };
+
 
     render() {
+        const { searchKey } = this.state;
+        const filteredOrder = this.state.order.filter((order) =>
+            order.snname.toLowerCase().includes(searchKey.toLowerCase())
+        );
 
         return (
 
@@ -100,12 +121,28 @@ class OrderList extends Component {
                         <a href="/PrintPreviewOrder"><button className='backBtn'>Save as PDF</button></a>
 
 
-
-
+                        <form className="form-inline my-2 my-lg-9 ml-auto">
+                            <input
+                                className="form-control"
+                                type="search"
+                                placeholder="Search"
+                                aria-label="Search"
+                                value={searchKey}
+                                onChange={this.handleSearchKeyChange}
+                            />
+                            <button
+                                className="btn btn-outline-success my-2 my-sm-0"
+                                type="button"
+                                onClick={this.resetSearch}
+                            >
+                                Reset
+                            </button>
+                        </form>
                     </div>
 
 
                     <div className="table-responsive">
+                   <p> <b> Total Orders: {this.state.order.length}</b></p>
                         <table class="table" >
                             <thead>
                                 <tr className="table-dark" >

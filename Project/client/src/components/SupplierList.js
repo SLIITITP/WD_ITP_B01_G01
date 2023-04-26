@@ -51,6 +51,7 @@ class SupplierList extends Component {
             axios.delete(`/AddSupplier/post/${id}`).then((res) => {
                 alert("Delete Successfully");
                 this.retrievePosts();
+
             });
         }
     };
@@ -110,7 +111,9 @@ class SupplierList extends Component {
 
                     </div>
 
-                    <div className="table-responsive">
+                    <div className="table-responsive"  >
+                    <p><b>Total Suppliers: {filteredSupplier.length}</b></p> {/* added count display */}
+                   
                         <table class="table" >
                             <thead>
                                 <tr className="table-dark" >
