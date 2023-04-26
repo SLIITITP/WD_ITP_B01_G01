@@ -3,14 +3,13 @@ import axios from 'axios';
 import { useParams } from "react-router-dom";
 import { jsPDF } from "jspdf";
 import "jspdf-autotable";
-
 function withParams(Component) {
     return props => <Component params={
         useParams()
     } />
 }
 
-class OrderList extends Component {
+class PrintPreviewOrder extends Component {
 
     constructor(props) {
         super(props);
@@ -19,8 +18,8 @@ class OrderList extends Component {
 
         this.state = {
             id: props.params.id,
-            order: []
-            
+            order: [],
+            searchKey: "",
         };
 
     }
@@ -69,6 +68,7 @@ class OrderList extends Component {
                     pname: "",
                     quantity: "",
                     unitprice: "",
+                    status: ""
 
                 })
             }
@@ -86,8 +86,51 @@ class OrderList extends Component {
     };
 
 
+    //search part
+    handleSearchKeyChange = (e) => {
+        const searchKey = e.currentTarget.value;
+        this.setState({ searchKey });
+        this.filterData(this.state.order, searchKey);
+    };
+
+    filterData(posts, searchkey) {
+        const result = posts.filter((post) =>
+            post.snname.toLowerCase().includes(searchkey.toLowerCase())
+        );
+        this.setState({ order: result });
+    }
+
+    resetSearch = () => {
+        this.setState({ searchKey: "" }, () => {
+            this.retrievePosts();
+        });
+    };
+
+    handlePrint = () => {
+        const doc = new jsPDF();
+        const table = document.getElementById("OrderTable");
+        const tableRows = table.querySelectorAll("tr");
+
+        // Add header
+        doc.text("Suprime Wine Stores", 10, 10);
+        doc.text("Address: Suprime Wine Stores, No10,Gamini Road, Galle", 10, 20);
+        doc.text("Phone: 0915676543", 10, 30);
+        doc.text("Email: suprime@gmail.com", 10, 40);
+        doc.text("Order Detail List", 10, 60);
+
+        // Add table
+        doc.autoTable({
+            html: "#OrderTable",
+            startY: 70
+        });
+
+
+        doc.save("Order_Detail_Table.pdf");
+    };
+
 
     render() {
+
 
         return (
 
@@ -95,16 +138,21 @@ class OrderList extends Component {
             <div className='mt-5'>
                 <div className="container">
                     <div className="add_btn mt-2 mb-2">
+                    </div>
+                    <div className="add_btn mt-2 mb-2">
+                        <button onClick={this.handlePrint} className='backBtn'>Save </button>
                         <a href="/adminDashboard"><button className='backBtn'>Back to Dashboard</button></a>
-                        <a href="/AddOrder"><button className='backBtn'>Add Order Detail</button></a>
-
-
+                        <a href="/OrderList"><button className='backBtn'> Order List</button></a>
+                        <h2><b>Suprime Wine Stores</b></h2>
+                        <p>Address: Suprime Wine Stores, No10,Gamini Road, Galle</p>
+                        <p>Phone: 0915676543</p>
+                        <p>Email: suprime@gmail.com</p>
 
                     </div>
-
+                    <h3>Order Detail List</h3>
 
                     <div className="table-responsive">
-                        <table class="table" >
+                        <table class="table" id="OrderTable">
                             <thead>
                                 <tr className="table-dark" >
                                     <th scope="col" ></th>
@@ -117,8 +165,7 @@ class OrderList extends Component {
                                     <th scope="col" >Total Price(LKR)</th>
                                     <th scope="col" >Status</th>
                                     <th scope="col" ></th>
-                                    <th scope="col" >Action</th>
-                                    <th scope="col" ></th>
+
 
 
 
@@ -163,37 +210,9 @@ class OrderList extends Component {
                                         <td>{
                                             order.quantity * order.unitprice
                                         }</td>
-
-                                        <td>
-                                            <input type="text" class="form-control"
-                                                value={
-                                                    this.state.status
-                                                }
-                                                onChange={
-                                                    this.handleChange
-                                                }
-                                                id="formGroupExampleInput"
-                                                placeholder={
-                                                    order.status
-                                                } /></td>
-
-
-
-                                        <td onClick={
-                                            () => this.onDelete(order._id)
-                                        }>
-                                            <a className="btn btn-danger">
-                                                <i className="fas fa-trash-alt"></i>
-                                            </a>
-                                        </td>
-
-                                        <td onClick={
-                                            () => this.onSave(order._id)
-                                        }>
-                                            <a className="btn btn-success">
-                                                <i className="fas fa-edit"></i>
-                                            </a>
-                                        </td>
+                                        <td>{
+                                            order.status
+                                        }</td>
 
 
                                     </tr>
@@ -210,4 +229,4 @@ class OrderList extends Component {
     }
 }
 
-export default withParams(OrderList);
+export default withParams(PrintPreviewOrder);

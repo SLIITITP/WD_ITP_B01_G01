@@ -42,9 +42,25 @@ class PrintPreviewSupplier extends Component  {
     }
     handlePrint = () => {
         const doc = new jsPDF();
-        doc.autoTable({ html: '#SupplierTable' });
-        doc.save('SupplierDetailList.pdf');
-    };
+        const table = document.getElementById("SupplierTable");
+        const tableRows = table.querySelectorAll("tr");
+    
+        // Add header
+        doc.text("Suprime Wine Stores", 10, 10);
+        doc.text("Address: Suprime Wine Stores, No10,Gamini Road, Galle", 10, 20);
+        doc.text("Phone: 0915676543", 10, 30);
+        doc.text("Email: suprime@gmail.com", 10, 40);
+        doc.text("Supplier Detail List", 10, 60);
+    
+        // Add table
+        doc.autoTable({
+          html: "#SupplierTable",
+          startY: 70
+        });
+    
+        
+        doc.save("Supplier_Detail_Table.pdf");
+    };
 
 
    
@@ -61,12 +77,17 @@ class PrintPreviewSupplier extends Component  {
                     <div className="container">
                     <div className="add_btn mt-2 mb-2">
                            
-                        <button onClick={this.handlePrint}  className='backBtn'>Print </button>
+                        <button onClick={this.handlePrint}  className='backBtn'>Save </button>
                         <a href="/adminDashboard"><button className='backBtn'>Back to Dashboard</button></a>
                         <a href="/SupplierList"><button className='backBtn'>Supplier List</button></a>
-                      
-                        </div>
-                            <h3>Supplier Detail List</h3>
+                        <h2><b>Suprime Wine Stores</b></h2>
+                        <p>Address: Suprime Wine Stores, No10,Gamini Road, Galle</p>
+                        <p>Phone: 0915676543</p>
+                        <p>Email: suprime@gmail.com</p>
+
+                    </div>
+                    <h3>Supplier Detail List</h3>
+
 
                         <div className="add_btn mt-2 mb-2">
                           
