@@ -46,6 +46,14 @@ app.use('/AddSupplier', supplierRoutes);
 app.use('/EditSupplier', supplierRoutes);
 app.use('/SupplierList', supplierRoutes);
 
+const inventoryRoutes = require('./routes/inventory');
+app.use('/addProduct', inventoryRoutes);
+
+app.use('/inventory', inventoryRoutes);
+app.use('/inventoryDetail', inventoryRoutes);
+app.use('/adminDashboard', inventoryRoutes);
+app.use('/editInventory', inventoryRoutes);
+
 
 
 
