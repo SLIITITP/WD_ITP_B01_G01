@@ -76,57 +76,35 @@ export default class AddSupplier extends Component {
             <a href="/adminDashboard"><button className='backBtn'>Back to Dashboard</button></a>
             <a href="/SupplierList"><button className='backBtn'>Supplier List</button></a>
             
-            <form className="create" >
-            <h3>Add New Supplier</h3>
+            <form className="create" onSubmit={this.onSubmit}>
+  <h3>Add New Supplier</h3>
 
-            <label>Supplier Company Name: </label>
-            <input type="text" name="snname" value={this.state.snname}
-                         onChange={this.handleChange} id="formGroupExampleInput"  />
-           
+  <label>Supplier Company Name: </label>
+  <input type="text" name="snname" value={this.state.snname} onChange={this.handleChange} required />
 
-            <label>Supplier Name: </label>
-            <input type="text" name="sname" value={this.state.sname}
-                         onChange={this.handleChange} id="formGroupExampleInput"  />
+  <label>Supplier Name: </label>
+  <input type="text" name="sname" value={this.state.sname} onChange={this.handleChange} required />
 
-            <label>Address: </label>
-            <input type="text" name="address" value={this.state.address}
-                         onChange={this.handleChange} id="formGroupExampleInput"  />
+  <label>Address: </label>
+  <input type="text" name="address" value={this.state.address} onChange={this.handleChange} required />
 
-            <label>Email: </label>
-            <input type="text" name="email" value={this.state.email}
-                         onChange={this.handleChange} id="formGroupExampleInput"  />
+  <label>Email: </label>
+  <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
 
-            <label>Website: </label>
-            <input type="text" name="website" value={this.state.website}
-                         onChange={this.handleChange} id="formGroupExampleInput"  />
+  <label>Website: </label>
+  <input type="url" name="website" value={this.state.website} onChange={this.handleChange} required/>
 
-            <label>Phone: </label>
-            <input type="number" name="phone" value={this.state.phone}
-                         onChange={this.handleChange} id="formGroupExampleInput"  />
+  <label>Phone: </label>
+  <input type="tel" name="phone" value={this.state.phone} onChange={this.handleChange} required pattern="[0-9]{10}" title="Please enter a valid 10 digit phone number"/>
 
-            <label>Status: </label>
-            <input type="status" name="status" value={this.state.status}
-                         onChange={this.handleChange} id="formGroupExampleInput"  />
-            
-           
-             {/* <label>Car Make</label>
-          <select id="carMake" placeholder="Search by tags" value={this.props.carMake} onChange={this.changeOption.bind(this, 'carMake')}>
+  <label>Status: </label>
+  <input type="text" name="status" value={this.state.status} onChange={this.handleChange} required />
 
-          {this.props.carMakeOptions.map(option => (<option key={option} value={option}>{option}</option> ))}
-          </select>
+  <center>
+    <button className='formBtn' type="submit">Add Supplier</button>
+  </center>
+</form>
 
-          <label>Model</label>
-          <select id="model" value={this.props.model} onChange={this.changeOption.bind(this, 'model')}>
-
-          {this.props.modelOptions.map(option => (<option key={option} value={option}>{option}</option> ))}
-          </select> */}
-
-         
-            <center><button className='formBtn' type="submit" onClick={this.onSubmit}>Add Supplier</button></center>
-
-            
-            
-        </form>
         </div>
     )
 }

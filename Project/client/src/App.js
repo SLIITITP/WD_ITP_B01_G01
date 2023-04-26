@@ -19,8 +19,8 @@ import EditSupplier from './components/EditSupplier';
 import OrderList from './components/OrderList';
 import SupplierMail from './components/SupplierMail';
 import AddOrder from './components/AddOrder';
-import EditOrder from './components/EditOrder';
 import PrintPreviewSupplier from './components/PrintPreviewSupplier';
+
 
 
 
@@ -52,8 +52,8 @@ export default class App extends Component {
             <Route path="/OrderList" exact element={<OrderList />} />
             <Route path="/SupplierMail" exact element={<SupplierMail />} />
             <Route path="/AddOrder" exact element={<AddOrder />} />
-            <Route path="/EditOrder/:id" exact element={<EditOrder />} />
-            <Route path="/PrintPreviewSupplier" exact element={<PrintPreviewSupplier />} />-
+            <Route path="/PrintPreviewSupplier" exact element={<PrintPreviewSupplier />} />
+            <Route path="/OrderList" exact element={<OrderList />} />
             
          
 

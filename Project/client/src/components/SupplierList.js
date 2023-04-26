@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
+
 function withParams(Component) {
     return props => <Component params={
         useParams()
@@ -17,25 +18,22 @@ class SupplierList extends Component {
         this.state = {
             id: props.params.id,
             supplier: [],
-            searchKey:"",
+            searchKey: "",
         };
 
     }
 
     componentDidMount() {
         this.retrievePosts();
-
     }
 
     retrievePosts() {
         axios.get("/AddSupplier/posts").then(res => {
             if (res.data.success) {
                 this.setState({ supplier: res.data.existingPosts });
-                console.log(this.state.supplier)
             }
         });
     }
-
 
     // edit
     handleChange = (e) => {
@@ -48,7 +46,6 @@ class SupplierList extends Component {
         this.status = value;
     }
 
-
     onDelete = (id) => {
         if (window.confirm("Are you sure you want to delete this?")) {
             axios.delete(`/AddSupplier/post/${id}`).then((res) => {
@@ -59,6 +56,12 @@ class SupplierList extends Component {
     };
 
     //search part
+    handleSearchKeyChange = (e) => {
+        const searchKey = e.currentTarget.value;
+        this.setState({ searchKey });
+        this.filterData(this.state.supplier, searchKey);
+    };
+
     filterData(posts, searchkey) {
         const result = posts.filter((post) =>
             post.snname.toLowerCase().includes(searchkey.toLowerCase())
@@ -66,31 +69,19 @@ class SupplierList extends Component {
         this.setState({ supplier: result });
     }
 
-    handlesearchArea = (e) => {
-        const searchkey = e.currentTarget.value;
-        axios.get("/AddSupplier/posts").then((res) => {
-            if (res.data.success) {
-                this.filterData(res.data.existingPosts, searchkey);
-                this.setState({ searchkey: searchkey });
-            }
-        });
-    };
-
     resetSearch = () => {
-        this.setState({ searchkey: "" }, () => {
+        this.setState({ searchKey: "" }, () => {
             this.retrievePosts();
         });
     };
+
     render() {
-        // const [count, setCount] = useState(0);
         const { searchKey } = this.state;
         const filteredSupplier = this.state.supplier.filter((supplier) =>
-            supplier.snname.toLowerCase().includes(this.state.searchKey.toLowerCase())
+            supplier.snname.toLowerCase().includes(searchKey.toLowerCase())
         );
 
         return (
-
-
             <div className='mt-5'>
                 <div className="container">
                     <div className="add_btn mt-2 mb-2">
@@ -99,29 +90,23 @@ class SupplierList extends Component {
                         <a href="/SupplierMail"><button className='backBtn'>Send Email</button></a>
                         <a href="/PrintPreviewSupplier"><button className='backBtn'>Print Preview</button></a>
 
-                        {/* <b>Total: {count}</b> */}
-                        {/* <div style={{marginLeft:'1100px'}}> <h1><b>Total: </b></h1></div> */}
-
-                        <form
-                            className="form-inline my-2 my-lg-9 ml-auto" >
+                        <form className="form-inline my-2 my-lg-9 ml-auto">
                             <input
                                 className="form-control"
                                 type="search"
                                 placeholder="Search"
                                 aria-label="Search"
                                 value={searchKey}
-                                onChange={this.handlesearchArea}
-                            ></input>
-                            {/* <button
-            className="btn btn-outline-success my-2 my-sm-0"
-            type="button"
-            onClick={this.resetSearch}
-          >
-            Reset
-          </button> */}
-                            {/* <button className="btn btn-outline-secondary">Search</button> */}
+                                onChange={this.handleSearchKeyChange}
+                            />
+                            <button
+                                className="btn btn-outline-success my-2 my-sm-0"
+                                type="button"
+                                onClick={this.resetSearch}
+                            >
+                                Reset
+                            </button>
                         </form>
-
 
                     </div>
 
@@ -139,11 +124,6 @@ class SupplierList extends Component {
                                     <th scope="col" >Status</th>
                                     <th scope="col" >Action</th>
                                     <th scope="col" ></th>
-
-
-
-
-
                                 </tr>
                             </thead>
                             <tbody> {
