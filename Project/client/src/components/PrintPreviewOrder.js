@@ -113,7 +113,7 @@ class PrintPreviewOrder extends Component {
 
         // Add header
         doc.text("Suprime Wine Stores", 10, 10);
-        doc.text("Address: Suprime Wine Stores, No10,Gamini Road, Galle", 10, 20);
+        doc.text("Address: Supreme Wine Stores, No10,Gamini Road, Galle", 10, 20);
         doc.text("Phone: 0915676543", 10, 30);
         doc.text("Email: suprime@gmail.com", 10, 40);
         doc.text("Order Detail List", 10, 60);
@@ -143,7 +143,7 @@ class PrintPreviewOrder extends Component {
                         <button onClick={this.handlePrint} className='backBtn'>Save </button>
                         <a href="/adminDashboard"><button className='backBtn'>Back to Dashboard</button></a>
                         <a href="/OrderList"><button className='backBtn'> Order List</button></a>
-                        <h2><b>Suprime Wine Stores</b></h2>
+                        <h2><b>Supreme Wine Stores</b></h2>
                         <p>Address: Suprime Wine Stores, No10,Gamini Road, Galle</p>
                         <p>Phone: 0915676543</p>
                         <p>Email: suprime@gmail.com</p>

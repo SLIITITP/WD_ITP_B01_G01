@@ -88,7 +88,7 @@ class SupplierList extends Component {
                         <a href="/adminDashboard"><button className='backBtn'>Back to Dashboard</button></a>
                         <a href="/AddSupplier"><button className='backBtn'>Add Supplier</button></a>
                         <a href="/SupplierMail"><button className='backBtn'>Send Email</button></a>
-                        <a href="/PrintPreviewSupplier"><button className='backBtn'>Print Preview</button></a>
+                        <a href="/PrintPreviewSupplier"><button className='backBtn'>Save as PDF</button></a>
 
                         <form className="form-inline my-2 my-lg-9 ml-auto">
                             <input

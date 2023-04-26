@@ -96,9 +96,10 @@ export default class AddSupplier extends Component {
                          onChange={this.handleChange} id="formGroupExampleInput"  />
 
 
-            <label>Product Name: </label>
+<label>Product Name: </label>
             <input type="text" name="pname" value={this.state.pname}
                          onChange={this.handleChange} id="formGroupExampleInput"  />
+
 
             <label>Quantity: </label>
             <input type="number" name="quantity" value={this.state.quantity}
@@ -111,19 +112,6 @@ export default class AddSupplier extends Component {
             <label>Status: </label>
             <input type="text" name="status" value={this.state.status}
                          onChange={this.handleChange} id="formGroupExampleInput"  />
-            
-           
-             {/* <label>Car Make</label>
-          <select id="carMake" placeholder="Search by tags" value={this.props.carMake} onChange={this.changeOption.bind(this, 'carMake')}>
-
-          {this.props.carMakeOptions.map(option => (<option key={option} value={option}>{option}</option> ))}
-          </select>
-
-          <label>Model</label>
-          <select id="model" value={this.props.model} onChange={this.changeOption.bind(this, 'model')}>
-
-          {this.props.modelOptions.map(option => (<option key={option} value={option}>{option}</option> ))}
-          </select> */}
 
          
             <center><button className='formBtn' type="submit" onClick={this.onSubmit}>Add Order</button></center>

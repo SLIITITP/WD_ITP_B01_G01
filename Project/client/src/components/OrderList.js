@@ -97,6 +97,8 @@ class OrderList extends Component {
                     <div className="add_btn mt-2 mb-2">
                         <a href="/adminDashboard"><button className='backBtn'>Back to Dashboard</button></a>
                         <a href="/AddOrder"><button className='backBtn'>Add Order Detail</button></a>
+                        <a href="/PrintPreviewOrder"><button className='backBtn'>Save as PDF</button></a>
+
 
 
 
