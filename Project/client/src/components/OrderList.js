@@ -109,6 +109,9 @@ class OrderList extends Component {
         const filteredOrder = this.state.order.filter((order) =>
             order.snname.toLowerCase().includes(searchKey.toLowerCase())
         );
+        const totalQuantity = this.state.order.reduce((total, item) => total + item.quantity, 0);
+        const totalPrice = this.state.order.reduce((total, item) => total + item.quantity * item.unitprice, 0);
+    
 
         return (
 
@@ -119,6 +122,26 @@ class OrderList extends Component {
                         <a href="/adminDashboard"><button className='backBtn'>Back to Dashboard</button></a>
                         <a href="/AddOrder"><button className='backBtn'>Add Order Detail</button></a>
                         <a href="/PrintPreviewOrder"><button className='backBtn'>Save as PDF</button></a>
+
+                        <div className="row">
+            <div className="col-sm-4">
+              <div className="card1">
+                <div className="card-body1">
+                  <h5 className="card-title">Total Quantity</h5>
+                  <p className="card-text">{totalQuantity}</p>
+                </div>
+              </div>
+            </div>
+            <div className="col-sm-4">
+              <div className="card2">
+              <div className="card-body2">
+                <h5 className="card-title">Total Price</h5>
+                <p className="card-text">LKR {totalPrice}</p>
+              </div>
+            </div>
+            </div>
+            </div>
+
 
 
                         <form className="form-inline my-2 my-lg-9 ml-auto">

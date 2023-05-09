@@ -130,6 +130,8 @@ class PrintPreviewOrder extends Component {
 
 
     render() {
+        const totalQuantity = this.state.order.reduce((total, item) => total + item.quantity, 0);
+        const totalPrice = this.state.order.reduce((total, item) => total + item.quantity * item.unitprice, 0);
 
 
         return (
@@ -150,6 +152,24 @@ class PrintPreviewOrder extends Component {
                         <p>Email: supreme@gmail.com</p>
 
                     </div>
+                    <div className="row">
+            <div className="col-sm-4">
+              <div className="card1">
+                <div className="card-body1">
+                  <h5 className="card-title">Total Quantity</h5>
+                  <p className="card-text">{totalQuantity}</p>
+                </div>
+              </div>
+            </div>
+            <div className="col-sm-4">
+              <div className="card2">
+              <div className="card-body2">
+                <h5 className="card-title">Total Price</h5>
+                <p className="card-text">LKR {totalPrice}</p>
+              </div>
+            </div>
+            </div>
+            </div>
                     <h3>Order Detail List</h3>
 
                     <div className="table-responsive">
