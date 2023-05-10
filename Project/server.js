@@ -49,6 +49,16 @@ app.use('/SupplierList', supplierRoutes);
 
 
 
+//products
+const productsRoutes = require('./routes/inventory');
+app.use('/spirits', productsRoutes); 
+
+const cartRoutes = require('./routes/cart');
+app.use('/spirits', cartRoutes); 
+
+
+app.use('/categoryDetails', cartRoutes); 
+
 
 
 

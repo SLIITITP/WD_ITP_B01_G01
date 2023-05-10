@@ -16,6 +16,9 @@ import SupplierList from './components/SupplierList';
 import AddSupplier from './components/AddSupplier';
 import EditSupplier from './components/EditSupplier';
 import ContactAdmin from './components/ContactAdmin';
+import Spirits from './components/categories/spirits';
+import Category_details from './components/categories/category_details';
+import CartPage from './components/cartPage';
 
 
 
@@ -44,6 +47,11 @@ export default class App extends Component {
           <Route path="/SupplierList" exact element={<SupplierList/>}/>
           <Route path="/AddSupplier" exact element={<AddSupplier/>}/>
          <Route path="/EditSupplier/:id" exact element={<EditSupplier/>}/>
+
+         <Route path="/spirits" exact element={<Spirits />} />
+            <Route path="/categoryDetails" exact element={<Category_details />} />
+            <Route path="/cartPage" exact element={<CartPage />} />
+
           
           </Routes>
           {/* <Footer />  */}

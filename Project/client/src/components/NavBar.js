@@ -18,9 +18,9 @@ export default function Navbar() {
                 <a class="nav-link" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/informationForm">Spirits</a>
+                <a class="nav-link" href="/spirits">Products</a>
               </li> 
-              <li class="nav-item">
+              {/* <li class="nav-item">
                 <a class="nav-link" href="#services">Wine</a>
               </li> 
               <li class="nav-item">
@@ -28,15 +28,15 @@ export default function Navbar() {
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#team">Champagne</a>
-              </li> 
+              </li>  */}
               <li class="nav-item">
                 <a class="nav-link" href="/contact">Contact</a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link" href="/cart">Login</a>
+                <a class="nav-link" href="/leave">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/informationForm">Cart</a>
+                <a class="nav-link" href="/cartPage">Cart</a>
               </li>
              
               
