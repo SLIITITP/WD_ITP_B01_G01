@@ -15,6 +15,15 @@ import AdminDashboard from './components/adminDashboard';
 import SupplierList from './components/SupplierList';
 import AddSupplier from './components/AddSupplier';
 import EditSupplier from './components/EditSupplier';
+import AddEmployee from './components/AddEmployee';
+import EditEmployee from './components/EditEmployee';
+import EmployeeList from './components/EmployeeList';
+import EmployeePreview from './components/EmployeePreview';
+import Leave from './components/Leave'
+import LeaveAdmin from './components/LeaveAdmin'
+import LeaveDisplay from './components/LeaveDisplay'
+import EmpLoginPage from './components/EmpLoginPage';
+import EmpWelcome from './components/EmpWelcome';
 
 
 
@@ -42,6 +51,21 @@ export default class App extends Component {
           <Route path="/SupplierList" exact element={<SupplierList/>}/>
           <Route path="/AddSupplier" exact element={<AddSupplier/>}/>
          <Route path="/EditSupplier/:id" exact element={<EditSupplier/>}/>
+
+
+
+         <Route path="/EmployeeList" exact element={<EmployeeList/>}/>
+          <Route path="/AddEmployee" exact element={<AddEmployee/>}/>
+          <Route path="/EditEmployee/:id" exact element={<EditEmployee/>}/>
+          <Route path="/EmployeePreview" exact element={<EmployeePreview/>}/>
+
+          <Route path="/EmpLoginPage" exact element={<EmpLoginPage/>}/>
+          <Route path="/EmpWelcome" exact element={<EmpWelcome/>}/>
+
+
+          <Route path="/Leave" exact element={<Leave/>}/>
+          <Route path="/LeaveAdmin" exact element={<LeaveAdmin/>}/>
+          <Route path="/LeaveDisplay" exact element={<LeaveDisplay/>}/>
           
           </Routes>
           {/* <Footer />  */}

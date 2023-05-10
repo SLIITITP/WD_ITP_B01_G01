@@ -49,6 +49,21 @@ app.use('/SupplierList', supplierRoutes);
 
 
 
+const employeeRoutes = require('./routes/employee');
+app.use('/AddEmployee', employeeRoutes);
+app.use('/EditEmployee', employeeRoutes);
+app.use('/EmployeeList', employeeRoutes);
+app.use('/EmployeePreview', employeeRoutes);
+app.use('/EmpLoginPage', employeeRoutes);
+app.use('/EmpWelcome', employeeRoutes);
+
+
+const leaveRoutes = require('./routes/leaves');
+app.use('/leave', leaveRoutes);
+app.use('/leaveAdmin', leaveRoutes);
+app.use('/leaveDisplay', leaveRoutes);
+
+
 
 
 

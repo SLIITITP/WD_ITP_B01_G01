@@ -65,6 +65,20 @@ label, input {
     margin-top: 25px;
     margin-bottom: 25px;
     border-radius: 10px;
+    margin-right: 10px;
+    
+  }
+
+  .backBtn2{
+    background-color: black;
+    color: #FFB400;
+    padding: 30px 30px 30px 30px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    margin-right: 10px;
+    width: 250px;
+    border-radius: 0%;
+    text-align: center;
     
   }
   
