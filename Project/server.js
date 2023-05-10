@@ -46,6 +46,19 @@ app.use('/AddSupplier', supplierRoutes);
 app.use('/EditSupplier', supplierRoutes);
 app.use('/SupplierList', supplierRoutes);
 
+//finance
+const financeRoutes = require('./routes/finance');
+app.use('/AddIncome', financeRoutes);
+
+app.use('/IncomeList', financeRoutes);
+app.use('/EditIncome', financeRoutes);
+
+const financeExRoutes = require('./routes/financeEx');
+app.use('/AddExpense', financeExRoutes);
+
+app.use('/ExpenseList', financeExRoutes);
+app.use('/EditExpense', financeExRoutes);
+
 
 
 
