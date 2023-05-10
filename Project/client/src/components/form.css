@@ -1,71 +1,134 @@
 /* new workout form */
-label, input {
-    display: block;
-   
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--primary);
-    
-  }
-  input , select {
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    width: 100%;
-    border: 1px solid #000000;
-    border-radius: 4px;
-    box-sizing: border-box;
-
-    
-  }
-  form button {
-    background: var(--primary);
-    border: 0;
-    color: #fff;
-    padding: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  div.error {
-    padding: 10px;
-    background: #ffefef;
-    border: 1px solid var(--error);
-    color: var(--error);
-    border-radius: 4px;
-    margin: 20px 0;
-  }
-
-  h3{
-    
-    font-weight: bold;
-    color: var(--primary);
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 30px;
-  }
-
-  .formBtn{
-    background-color: black;
-    color: #FFB400;
-    padding: 5 5 5 5;
-    width: 30%;
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    border-radius: 30px;
-    
-  }
-
-  .backBtn{
-    background-color: black;
-    color: #FFB400;
-    padding: 10px 10px 10px 10px;
-    font-size: 1.2rem;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    border-radius: 10px;
-    
-  }
+input, select, textarea {
+  display: block;
+  font-size: 1.2rem;
+  color: var(--primary);
   
- 
+}
+label{
+  display: block;
+  font-size: 1.2rem;
+  color: var(--primary);
+  font-weight: bold;
+}
+input , select, textarea {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+  
+}
+form button {
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+h3{
+  
+  font-weight: bold;
+  color: var(--primary);
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.formBtn{
+  background-color: black;
+  color: #FFB400;
+  padding: 5 5 5 5;
+  width: 30%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border-radius: 30px;
+  
+}
+
+.backBtn{
+  background-color: black;
+  color: #FFB400;
+  padding: 10px 10px 10px 10px;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  margin-right: 10px;
+  
+}
+
+
+
+/*Admin dashboard buttons*/
+.dashBtn{
+  background-color: black;
+  color: #FFB400;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 10px;
+  width: 350px;
+}
+
+h2{
+  
+  font-weight: bold;
+  color: var(--primary);
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+li{
+font-size: 1.3rem;
+font-weight: bold;
+}
+
+.img1{
+align-items: end;
+width: 100%;
+
+}
+
+
+
+
+.backBtn2{
+background-color: black;
+color: #FFB400;
+padding: 30px 30px 30px 30px;
+font-size: 1.2rem;
+border-radius: 10px;
+margin-right: 10px;
+width: 250px;
+border-radius: 0%;
+text-align: center;
+
+}

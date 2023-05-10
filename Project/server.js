@@ -33,6 +33,7 @@ app.listen(port, () => {
 
 const postRoutes = require('./routes/posts');
 app.use('/contact', postRoutes);
+app.use('/contactAdmin', postRoutes);
 
 const detailsRoutes = require('./routes/details');
 app.use('/informationForm', detailsRoutes); 

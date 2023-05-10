@@ -15,6 +15,7 @@ import AdminDashboard from './components/adminDashboard';
 import SupplierList from './components/SupplierList';
 import AddSupplier from './components/AddSupplier';
 import EditSupplier from './components/EditSupplier';
+import ContactAdmin from './components/ContactAdmin';
 
 
 
@@ -29,7 +30,8 @@ export default class App extends Component {
             <Route path="/" exact element={<Home />} />
             <Route path="/contactdisplay/:id" exact element={<ContactDisplay />} />
             <Route path="/contact" exact element={<Contact />} />
-          
+            <Route path="/contactAdmin" exact element={<ContactAdmin />} />
+
    
           <Route path="/informationForm" exact element={<InformationForm />} />
           <Route path="/DisplayInfo/:id" exact element={<DisplayInfo />} />

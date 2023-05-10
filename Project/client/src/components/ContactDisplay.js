@@ -1,6 +1,4 @@
 
-
-
 import React, { Component } from 'react';
 import axios from 'axios';
 import { useParams, useLocation } from "react-router-dom";
@@ -122,10 +120,10 @@ class ContactDisplay extends Component {
           <textarea class="form-control" name="message" value={this.state.message}
             onChange={this.handleChange} id="exampleFormControlTextarea1" placeholder={message} rows="3"></textarea>
 
-          <button className="btn btn-danger" type="submit" style={{ marginTop: '15px' }} onClick={() => this.onDelete([_id])}>
+          <button className="btn-contact-display" type="submit" style={{ marginTop: '15px' }} onClick={() => this.onDelete([_id])}>
             <i className="fas fa-trash-alt"></i> Delete</button><br />
 
-          <button className="btn btn-primary" type="submit" style={{ marginTop: '15px' }} onClick={this.onSubmit}>
+          <button className="btn-contact-display" type="submit" style={{ marginTop: '15px' }} onClick={this.onSubmit}>
 
             <i className="fas fa-edit"></i> Edit
 
