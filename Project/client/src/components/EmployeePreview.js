@@ -65,13 +65,13 @@ handlePrint = () => {
     const table = document.getElementById("EmployeeTable");
     const tableRows = table.querySelectorAll("tr");
   
-    // Load the logo image
-    fetch("../images/sprmeLogo.png") // Replace 'path/to/logo.png' with the actual path or URL of your logo image
+    
+    fetch("../images/sprmeLogo.png")
       .then(response => response.arrayBuffer())
       .then(logoData => {
         const logoUrl = URL.createObjectURL(new Blob([logoData]));
   
-        // Add header
+        
         doc.addImage(logoUrl, "PNG", 10, 21, 40, 40); 
         doc.text("Supreme Wine Stores", 55, 30);
         doc.text("Address: Supreme Wine Stores, No.10, Gamini Road, Galle", 55, 40);
@@ -79,17 +79,16 @@ handlePrint = () => {
         doc.text("Email: supreme@gmail.com", 55, 60);
         doc.text("Employee Detail List", 80, 80); 
   
-        // Add table
+        
         doc.autoTable({
           html: "#EmployeeTable",
-          startY: 90, // Adjust the starting Y-coordinate to make room for the header
+          startY: 90,
         });
   
         doc.save("Employee_Detail_Table.pdf");
       })
       .catch(error => {
         console.error("Error loading logo image:", error);
-        // Handle error loading logo image
       });
   };
 
