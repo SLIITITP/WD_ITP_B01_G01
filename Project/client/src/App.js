@@ -1,13 +1,17 @@
 import './App.css';
 import React, { Component } from 'react';
+import DeliverPreview from './components/deliverPreview';
+import DeliveryStatus from './components/deliveryStatus';
+import InformationForm from './components/InformationForm';
+import DisplayInfo from './components/DisplayInfo';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Contact from './components/Contact';
 import ContactDisplay from './components/ContactDisplay';
 import NavBar from './components/NavBar';
 import Home from './components/Home';
 import Footer from './components/Footer';
-import InformationForm from './components/InformationForm';
-import DisplayInfo from './components/DisplayInfo';
+// import InformationForm from './components/InformationForm';
+// import DisplayInfo from './components/DisplayInfo';
 import Inventory from './components/inventory';
 import InventoryDetail from './components/inventoryDetail';
 import AddProduct from './components/addProduct';
@@ -38,6 +42,10 @@ export default class App extends Component {
           <Route path="/inventoryDetail" exact element={<InventoryDetail />} />
           <Route path="/addProduct" exact element={<AddProduct />} />
           <Route path="/adminDashboard" exact element={<AdminDashboard />} />
+
+          <Route path="/admindelivery" exact element={<AdminDelivery />} />
+            <Route path="/deliveyStatus/:id" exact element={<DeliveryStatus />} />
+            <Route path="/printPreview" exact element={<DeliverPreview />} />
 
           <Route path="/SupplierList" exact element={<SupplierList/>}/>
           <Route path="/AddSupplier" exact element={<AddSupplier/>}/>

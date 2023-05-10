@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import axios from 'axios';
 import "./delivery.css"
@@ -65,14 +64,10 @@ export default class InformationForm extends Component {
 
     }
 
-
-
-
-
     render() {
         return (
             <div >
-                <section id="about" class="about section-padding">
+                {/* <section id="about" class="about section-padding">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-4 col-md-12 col-12">
@@ -110,15 +105,7 @@ export default class InformationForm extends Component {
                                     </div>
                                     </div>
                     </div>
-                </section>
-
-
-
-
-                
-
-
-
+                </section> */}
 
 
 
@@ -127,52 +114,122 @@ export default class InformationForm extends Component {
                 </div>
                 <div class="delivery-form">
                     <h2>Information Form</h2>
-                    <form>
+                    <form onSubmit={this.onSubmit}>
+                        <div className="form-group">
+                            <p for="formGroupExampleInput" class="form-label">Name</p>
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="name"
+                                name="name"
+                                value={this.state.name}
+                                onChange={this.handleChange}
+                                placeholder="Enter your name"
+                                required
+                            />
+                        </div>
 
-                        {/* {this.state.posts.map((posts, index) => (
-                        <div key={index}>
-                     */}
+                        <div className="form-group">
+                            <p for="formGroupExampleInput2" class="form-label">Address</p>
+                            <input
+                                type="address"
+                                className="form-control"
+                                id="address"
+                                name="address"
+                                value={this.state.address}
+                                onChange={this.handleChange}
+                                placeholder="Enter your address"
+                                required
+                            />
+                        </div>
 
-                        <p for="formGroupExampleInput" class="form-label">Name</p>
-                        <input type="text" class="form-control" name="name" value={this.state.name}
-                            onChange={this.handleChange} id="formGroupExampleInput" placeholder="Enter your name" />
+                        {/* <div className="form-group">
+                            <p for="exampleFormControlTextarea1" class="form-label">Email</p>
+                            <textarea
+                             
+                                className="form-control"
+                                id="email"
+                                name="email"
+                                value={this.state.email}
+                                onChange={this.handleChange}
+                                placeholder="Enter your email"
+                                required
+                            />
+                        </div> */}
 
-                        <p for="exampleFormControlTextarea1" class="form-label">Address</p>
-                        <textarea class="form-control" name="address" value={this.state.address}
-                            onChange={this.handleChange} id="exampleFormControlTextarea1" placeholder="Enter your address" rows="3"></textarea>
-
-
-                        <p for="formGroupExampleInput2" class="form-label">Email</p>
-                        <input type="text" class="form-control" name="email" value={this.state.email}
-                            onChange={this.handleChange} id="formGroupExampleInput2" placeholder="Enter your email" />
-
-                        <p for="formGroupExampleInput" class="form-label">phone</p>
-                        <input type="text" class="form-control" name="phone" value={this.state.phone}
-                            onChange={this.handleChange} id="formGroupExampleInput" placeholder="Enter your phone" />
-
-                        <p for="formGroupExampleInput2" class="form-label">Town</p>
-                        <input type="text" class="form-control" name="town" value={this.state.town}
-                            onChange={this.handleChange} id="formGroupExampleInput2" placeholder="Enter your town" />
-
-
-                        <p for="exampleFormControlTextarea1" class="form-label">Notes</p>
-                        <textarea class="form-control" name="message" value={this.state.message}
-                            onChange={this.handleChange} id="exampleFormControlTextarea1" placeholder="Enter your Notes" rows="3"></textarea>
-
-                        <button className="btn btn-primary" type="submit" style={{ marginTop: '15px' }} onClick={this.onSubmit}>
-                            <i className="far fa-check-square"></i> Submit</button><br />
-
+                        <div className="form-group">
+                            <p for="formGroupExampleInput2" class="form-label">Email</p>
+                            <input
+                                type="email"
+                                className="form-control"
+                                id="email"
+                                name="email"
+                                value={this.state.email}
+                                onChange={this.handleChange}
+                                placeholder="Enter your email"
+                                required
+                            />
+                        </div>
 
 
 
 
-                        {/* <button className="btn btn-primary" type="submit" style={{ marginTop: '15px' }} >
-                            <a href="/contactdisplay" style={{ textDecoration: 'none', color: 'white' }}>
-                                <i className="far fa-check-square"></i> Next
-                            </a>
-                        </button> */}
-                        {/* </div>
-                        ))} */}
+                        <div className="form-group">
+                            <p for="exampleFormControlTextarea1" class="form-label">Phone</p>
+                            <input
+                            type="tel"
+                                className="form-control"
+                                id="phone"
+                                name="phone"
+                                value={this.state.phone}
+                                onChange={this.handleChange}
+                                placeholder="Enter your phone"
+                                required pattern="[0-9]{10}"
+                                title="Please enter a valid 10 digit phone number"
+                            />
+                        </div>
+
+                        {/* <div className="form-group">
+                            <p>Phone: </p>
+                            <input
+                                type="tel"
+                                name="phone"
+                                value={this.state.phone}
+                                placeholder="Enter your phone number"
+                                onChange={this.handleChange}
+                                required pattern="[0-9]{10}"
+                                title="Please enter a valid 10 digit phone number" />
+                        </div> */}
+
+                        <div className="form-group">
+                            <p for="exampleFormControlTextarea1" class="form-label">Town</p>
+                            <textarea
+                                className="form-control"
+                                id="town"
+                                name="town"
+                                value={this.state.town}
+                                onChange={this.handleChange}
+                                placeholder="Enter your town"
+
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <p for="exampleFormControlTextarea1" class="form-label">Notes</p>
+                            <textarea
+                                className="form-control"
+                                id="message"
+                                name="message"
+                                value={this.state.message}
+                                onChange={this.handleChange}
+                                placeholder="Enter your Notes"
+
+                            />
+                        </div>
+
+                        <button type="submit" className="btn-contact" style={{ marginTop: '15px' }}>
+                            Submit
+                        </button>
                     </form>
                 </div>
 

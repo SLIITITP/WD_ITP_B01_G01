@@ -34,21 +34,13 @@ app.listen(port, () => {
 const postRoutes = require('./routes/posts');
 app.use('/contact', postRoutes);
 
-const detailsRoutes = require('./routes/details');
-app.use('/informationForm', detailsRoutes); 
-
-
-app.use('/DisplayInfo', detailsRoutes);
-
 const supplierRoutes = require('./routes/supplier');
 app.use('/AddSupplier', supplierRoutes);
 
 app.use('/EditSupplier', supplierRoutes);
 app.use('/SupplierList', supplierRoutes);
 
-
-
-
-
-
+const detailsRoutes = require('./routes/details');
+app.use('/informationForm', detailsRoutes); 
+app.use('/DisplayInfo', detailsRoutes);
 
