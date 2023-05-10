@@ -16,6 +16,12 @@ import SupplierList from './components/SupplierList';
 import AddSupplier from './components/AddSupplier';
 import EditSupplier from './components/EditSupplier';
 
+//sales
+import AddSalesD from './components/AddSalesD';
+import EditSalesD from './components/EditSalesD';
+import SalesList from './components/SalesList';
+import PrintPreviewSales from './components/PrintPreviewSales';
+
 
 
 export default class App extends Component {
@@ -42,6 +48,12 @@ export default class App extends Component {
           <Route path="/SupplierList" exact element={<SupplierList/>}/>
           <Route path="/AddSupplier" exact element={<AddSupplier/>}/>
          <Route path="/EditSupplier/:id" exact element={<EditSupplier/>}/>
+
+         <Route path="/SalesList" exact element={<SalesList/>}/>
+          <Route path="/AddSalesD" exact element={<AddSalesD/>}/>
+         <Route path="/EditSalesD/:id" exact element={<EditSalesD/>}/>
+         <Route path="/PrintPreviewSales" exact element={<PrintPreviewSales/>}/>
+          
           
           </Routes>
           {/* <Footer />  */}

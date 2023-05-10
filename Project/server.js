@@ -46,6 +46,11 @@ app.use('/AddSupplier', supplierRoutes);
 app.use('/EditSupplier', supplierRoutes);
 app.use('/SupplierList', supplierRoutes);
 
+const salesRoutes = require('./routes/sales');
+app.use('/AddSalesD', salesRoutes);
+app.use('/EditSalesD', salesRoutes);
+app.use('/SalesList', salesRoutes);
+
 
 
 
