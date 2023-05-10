@@ -58,7 +58,6 @@ class LeaveDisplay extends Component {
         console.log(res.data.success._id);
         alert("Updated Successfully");
         var id = res.data.success._id;
-        //window.location.href=`/contactdisplay/${id}`;
         this.setState({
           NIC: "",
           leaveDate: "",

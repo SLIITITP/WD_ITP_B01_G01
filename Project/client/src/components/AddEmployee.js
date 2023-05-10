@@ -3,7 +3,7 @@ import './form.css'
 import axios from 'axios';
 
 
-//const AddSupplier = () => {
+
 export default class AddEmployee extends Component {
   constructor(props) {
     super(props);
@@ -138,7 +138,7 @@ export default class AddEmployee extends Component {
             onChange={this.handleChange}
             maxlength="10"
             required
-            pattern="\d{10}" // add pattern for phone number validation
+            pattern="\d{10}"
           />
 
           <label>Type: </label>
@@ -155,7 +155,7 @@ export default class AddEmployee extends Component {
             value={this.state.salary}
             onChange={this.handleChange}
             required
-            min="30000" // set minimum value for salary
+            min="30000"
           />
 
           <label>Password: </label>
@@ -165,7 +165,7 @@ export default class AddEmployee extends Component {
             value={this.state.password}
             onChange={this.handleChange}
             required
-            minLength="8" // set minimum length for password
+            minLength="8"
           />
 
           <center>
@@ -180,5 +180,3 @@ export default class AddEmployee extends Component {
 
 }
 
-
-//export default AddSupplier;

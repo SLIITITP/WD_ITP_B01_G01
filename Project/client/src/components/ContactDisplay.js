@@ -1,6 +1,3 @@
-
-
-
 import React, { Component } from 'react';
 import axios from 'axios';
 import { useParams, useLocation } from "react-router-dom";
@@ -54,13 +51,7 @@ class ContactDisplay extends Component {
 
     const { name, email, message } = this.state;
 
-    // const data = {
-    //   name: name,
-    //   email: email,
-    //   message: message
-    // }
-    // console.log(data);
-
+    
 
     let data =  this.state.posts;  
     data = {
@@ -75,7 +66,6 @@ class ContactDisplay extends Component {
         console.log(res.data.success._id);
         alert("Updated Successfully");
         var id = res.data.success._id
-        //window.location.href=`/contactdisplay/${id}`;
 
         this.setState(
           {

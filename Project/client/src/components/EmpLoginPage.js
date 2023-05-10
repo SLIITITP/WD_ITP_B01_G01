@@ -36,10 +36,8 @@ class EmpLoginPage extends Component {
           console.log(res.data.employee.NIC);
           const loggedInNIC = res.data.employee.NIC;
 
-          // Save the logged-in NIC to session storage or local storage
           sessionStorage.setItem('loggedInNIC', loggedInNIC);
 
-          // Redirect to EmployeeList page
           window.location.href = `/EmpWelcome`;
 
           this.setState({

@@ -1,52 +1,3 @@
-// import React from 'react'
-
-
-// const SupplierList = () => {
-//     return (
-//         <div className='mt-5'>
-//             <div className="container">
-//                 <div className="add_btn mt-2 mb-2">
-//                 <a href="/AddSupplier"><button className='backBtn'>Add Supplier</button></a>
-//                 </div>
-//                 <div className="table-responsive">
-//                     <table class="table" >
-//                         <thead>
-//                             <tr className="table-dark" >
-                               
-//                                 <th scope="col" >Supplier Company Name</th>
-//                                 <th scope="col">Supplier Name</th>
-//                                 <th scope="col" >Address</th>
-//                                 <th scope="col" >Email</th>
-//                                 <th scope="col" >Website</th>
-//                                 <th scope="col" >Phone</th>
-//                                 <th scope="col" >Status</th>
-//                                 <th scope="col" >Action</th>
-//                             </tr>
-//                         </thead>
-//                         <tbody>
-                           
-//                         </tbody>
-//                     </table>
-//                 </div>
-//             </div>
-//         </div>
-
-
-
-
-//     )
-// }
-
-// export default SupplierList;
-
-
-
-
-
-
-
-
-
 
 import React, {Component} from 'react';
 import axios from 'axios';
@@ -97,31 +48,6 @@ class SupplierList extends Component {
         this.status = value;
     }
 
-    // onSave = (id) => {
-
-
-    //     let data = this.state.posts.filter((post) => post._id === id)[0];
-    //     data.status = this.status;
-
-
-    //     axios.put(`/post/${id}`, data).then((res) => {
-    //         if (res.data.success) {
-    //             console.log(res.data.success._id);
-    //             alert("Updated Successfully");
-    //             var id = res.data.success._id
-
-
-    //             this.setState({
-    //                 name: "",
-    //                 email: "",
-    //                 message: "",
-    //                 address: "",
-    //                 town: "",
-    //                 phone: ""
-    //             })
-    //         }
-    //     })
-    // }
 
    onDelete = (id) => {
   if (window.confirm("Are you sure you want to delete this?")) {
@@ -209,12 +135,6 @@ class SupplierList extends Component {
                                         <i className="fas fa-edit"></i>
                                         </a>
                                     </td>
-
-                                    {/* <td >
-                                        <a component={Link} to={`/EditSupplier/${supplier._id}`} className="btn btn-success">
-                                            <i className="fas fa-edit"></i>
-                                        </a>
-                                    </td> */}
 
 
                                 </tr>

@@ -20,15 +20,7 @@ export default function Navbar() {
               <li class="nav-item">
                 <a class="nav-link" href="/spirits">Products</a>
               </li> 
-              {/* <li class="nav-item">
-                <a class="nav-link" href="#services">Wine</a>
-              </li> 
-              <li class="nav-item">
-                <a class="nav-link" href="#portfolio">Beer</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#team">Champagne</a>
-              </li>  */}
+              
               <li class="nav-item">
                 <a class="nav-link" href="/contact">Contact</a>
               </li> 

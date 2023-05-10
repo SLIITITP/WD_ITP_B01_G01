@@ -72,7 +72,6 @@ class EditSupplier extends Component {
         console.log(res.data.success._id);
         alert("Updated Successfully");
         var id = res.data.success._id
-        //window.location.href=`/contactdisplay/${id}`;
 
         this.setState(
           {
@@ -111,12 +110,6 @@ class EditSupplier extends Component {
         
         <form className="create" >
         <h3>Add New Supplier</h3>
-
-        
-        {/* <label>ID: </label>
-        <input type="text" name="_id" value={this.state._id}
-                     onChange={this.handleChange} id="formGroupExampleInput" placeholder={_id}  /> */}
-
 
 
         <label>Supplier Company Name: </label>

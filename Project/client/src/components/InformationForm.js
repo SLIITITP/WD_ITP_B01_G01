@@ -129,10 +129,6 @@ export default class InformationForm extends Component {
                     <h2>Information Form</h2>
                     <form>
 
-                        {/* {this.state.posts.map((posts, index) => (
-                        <div key={index}>
-                     */}
-
                         <p for="formGroupExampleInput" class="form-label">Name</p>
                         <input type="text" class="form-control" name="name" value={this.state.name}
                             onChange={this.handleChange} id="formGroupExampleInput" placeholder="Enter your name" />
@@ -164,15 +160,6 @@ export default class InformationForm extends Component {
 
 
 
-
-
-                        {/* <button className="btn btn-primary" type="submit" style={{ marginTop: '15px' }} >
-                            <a href="/contactdisplay" style={{ textDecoration: 'none', color: 'white' }}>
-                                <i className="far fa-check-square"></i> Next
-                            </a>
-                        </button> */}
-                        {/* </div>
-                        ))} */}
                     </form>
                 </div>
 

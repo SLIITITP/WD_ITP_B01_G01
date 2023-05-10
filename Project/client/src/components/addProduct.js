@@ -3,14 +3,7 @@ import './form.css'
 
 const addProduct = () => {
 
-    // const [inpval, setINP] = useState({
-
-    // })
-
-    // const setdata = (e) => {
-    //     console.log(e.target.value);
-    // }
-
+  
 
     return (
         <div className='container'>
@@ -23,8 +16,6 @@ const addProduct = () => {
             <input 
                 type="text"
                 name = "name"
-                // value = {}
-                // onChange = {setdata}
             />
 
             <label>Category: </label>

@@ -3,7 +3,6 @@ import './form.css'
 import axios from 'axios';
 
 
-//const AddSupplier = () => {
 export default class AddSupplier extends Component {
     constructor(props) {
         super(props);
@@ -121,5 +120,3 @@ export default class AddSupplier extends Component {
 
  }
    
-
-//export default AddSupplier;
