@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 function withParams(Component) {
     return props => <Component params={
@@ -46,14 +47,36 @@ class SupplierList extends Component {
         this.status = value;
     }
 
-    onDelete = (id) => {
-        if (window.confirm("Are you sure you want to delete this?")) {
-            axios.delete(`/AddSupplier/post/${id}`).then((res) => {
-                alert("Delete Successfully");
-                this.retrievePosts();
+    // onDelete = (id) => {
+    //     if (window.confirm("Are you sure you want to delete this?")) {
+    //         axios.delete(`/AddSupplier/post/${id}`).then((res) => {
+    //             alert("Delete Successfully");
+    //             this.retrievePosts();
 
-            });
-        }
+    //         });
+    //     }
+    // };
+
+    onDelete = (id) => {
+        Swal.fire({
+            title: 'Are you sure you want to delete this?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#FFB400',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`/AddSupplier/post/${id}`).then((res) => {
+                    Swal.fire(
+                        'Deleted!',
+                        'Your post has been deleted.',
+                        'success'
+                    )
+                    this.retrievePosts();
+                });
+            }
+        });
     };
 
     //search part
@@ -86,7 +109,8 @@ class SupplierList extends Component {
             <div className='mt-5'>
                 <div className="container">
                     <div className="add_btn mt-2 mb-2">
-                        <a href="/adminDashboard"><button className='backBtn'>Back to Dashboard</button></a>
+                   
+                        <a href="/adminDashboard"><button className='backBtn'> Dashboard</button></a>
                         <a href="/AddSupplier"><button className='backBtn'>Add Supplier</button></a>
                         <a href="/SupplierMail"><button className='backBtn'>Send Email</button></a>
                         <a href="/PrintPreviewSupplier"><button className='backBtn'>Save as PDF</button></a>

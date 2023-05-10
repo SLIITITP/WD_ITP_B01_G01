@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { useParams } from "react-router-dom";
+import Swal from 'sweetalert2';
+
 function withParams(Component) {
     return props => <Component params={
         useParams()
@@ -37,6 +39,42 @@ class OrderList extends Component {
     }
 
 
+    // // edit
+    // handleChange = (e) => {
+    //     const { name, value } = e.target;
+
+    //     this.setState({
+    //         ...this.state,
+    //         [name]: value
+    //     });
+    //     this.status = value;
+    // }
+
+    // onSave = (id) => {
+    //     let data = this.state.order.filter((post) => post._id === id)[0];
+    //     data.status = this.status;
+
+    //     axios.put(`/AddOrder/post/${id}`, data).then((res) => {
+    //         if (res.data.success) {
+    //             console.log(res.data.success._id);
+    //             alert("Updated Successfully");
+    //             var id = res.data.success._id
+
+    //             this.setState({
+    //                 snname: "",
+    //                 sname: "",
+    //                 date: "",
+    //                 email: "",
+    //                 pname: "",
+    //                 quantity: "",
+    //                 unitprice: "",
+
+    //             })
+    //         }
+    //     })
+    // }
+
+
     // edit
     handleChange = (e) => {
         const { name, value } = e.target;
@@ -54,32 +92,57 @@ class OrderList extends Component {
 
         axios.put(`/AddOrder/post/${id}`, data).then((res) => {
             if (res.data.success) {
-                console.log(res.data.success._id);
-                alert("Updated Successfully");
-                var id = res.data.success._id
+                Swal.fire({
+                    title: 'Updated Successfully!',
+                    text: 'Your changes have been saved.',
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    this.setState({
+                        snname: "",
+                        sname: "",
+                        date: "",
+                        email: "",
+                        pname: "",
+                        quantity: "",
+                        unitprice: "",
 
-                this.setState({
-                    snname: "",
-                    sname: "",
-                    date: "",
-                    email: "",
-                    pname: "",
-                    quantity: "",
-                    unitprice: "",
-
-                })
+                    });
+                });
             }
-        })
-    }
+        }).catch((error) => {
+            Swal.fire({
+                title: 'Error!',
+                text: 'An error occurred while updating the post. Please try again later.',
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK'
+            });
+        });
+    };
 
 
     onDelete = (id) => {
-        if (window.confirm("Are you sure you want to delete this?")) {
-            axios.delete(`/AddOrder/post/${id}`).then((res) => {
-                alert("Delete Successfully");
-                this.retrievePosts();
-            });
-        }
+        Swal.fire({
+            title: 'Are you sure you want to delete this?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#FFB400',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`/AddOrder/post/${id}`).then((res) => {
+                    Swal.fire(
+                        'Deleted!',
+                        'Your post has been deleted.',
+                        'success'
+                    )
+                    this.retrievePosts();
+                });
+            }
+        });
     };
 
 
@@ -111,7 +174,8 @@ class OrderList extends Component {
         );
         const totalQuantity = this.state.order.reduce((total, item) => total + item.quantity, 0);
         const totalPrice = this.state.order.reduce((total, item) => total + item.quantity * item.unitprice, 0);
-    
+       
+
 
         return (
 
@@ -119,32 +183,35 @@ class OrderList extends Component {
             <div className='mt-5'>
                 <div className="container">
                     <div className="add_btn mt-2 mb-2">
-                        <a href="/adminDashboard"><button className='backBtn'>Back to Dashboard</button></a>
+                        <a href="/adminDashboard"><button className='backBtn'> Dashboard</button></a>
                         <a href="/AddOrder"><button className='backBtn'>Add Order Detail</button></a>
                         <a href="/PrintPreviewOrder"><button className='backBtn'>Save as PDF</button></a>
+                      
 
                         <div className="row">
-            <div className="col-sm-4">
-              <div className="card1">
-                <div className="card-body1">
-                  <h5 className="card-title">Total Quantity</h5>
-                  <p className="card-text">{totalQuantity}</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-4">
-              <div className="card2">
-              <div className="card-body2">
-                <h5 className="card-title">Total Price</h5>
-                <p className="card-text">LKR {totalPrice}</p>
-              </div>
-            </div>
-            </div>
-            </div>
+                            <div className="col-sm-4">
+                                <div className="card1" style={{ backgroundColor: 'white', border: '2px solid orange', borderRadius: '10px', width: '200px', height: '100px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                    <div className="card-body1">
+                                        <h5 className="card-title">Total Quantity</h5>
+                                        <p className="card-text">{totalQuantity}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-sm-4">
+                                <div className="card2" style={{ backgroundColor: 'white', border: '2px solid orange', borderRadius: '10px', width: '200px', height: '100px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                    <div className="card-body2">
+                                        <h5 className="card-title" style={{ textAlign: 'center' }}>Total Price</h5>
+                                        <p className="card-text" style={{ textAlign: 'center' }}>LKR : {totalPrice}</p>
+                                        {/* <p> <b> Total Orders: {this.state.order.length}</b></p> */}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
 
                         <form className="form-inline my-2 my-lg-9 ml-auto">
+                            
                             <input
                                 className="form-control"
                                 type="search"
@@ -165,7 +232,8 @@ class OrderList extends Component {
 
 
                     <div className="table-responsive">
-                   <p> <b> Total Orders: {this.state.order.length}</b></p>
+                        <p> <b> Total Orders: {this.state.order.length}</b></p>
+
                         <table class="table" >
                             <thead>
                                 <tr className="table-dark" >

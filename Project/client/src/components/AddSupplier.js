@@ -73,7 +73,7 @@ export default class AddSupplier extends Component {
     render() {
         return (
             <div className='container'>
-                <a href="/adminDashboard"><button className='backBtn'>Back to Dashboard</button></a>
+                <a href="/adminDashboard"><button className='backBtn'> Dashboard</button></a>
                 <a href="/SupplierList"><button className='backBtn'>Supplier List</button></a>
 
                 <form className="create" onSubmit={this.onSubmit}>

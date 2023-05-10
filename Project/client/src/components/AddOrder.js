@@ -82,7 +82,7 @@ export default class AddOrder extends Component {
     render() {
         return (
             <div className='container'>
-                <a href="/adminDashboard"><button className='backBtn'>Back to Dashboard</button></a>
+                <a href="/adminDashboard"><button className='backBtn'>Dashboard</button></a>
                 <a href="/OrderList"><button className='backBtn'>Order List</button></a>
 
                 <form className="create" onSubmit={this.onSubmit}>
@@ -95,7 +95,14 @@ export default class AddOrder extends Component {
                     <input type="text" name="sname" value={this.state.sname} onChange={this.handleChange} id="formGroupExampleInput" required />
 
                     <label>Date: </label>
-                    <input type="date" name="date" value={this.state.date} onChange={this.handleChange} id="formGroupExampleInput" required max={new Date().toISOString().split("T")[0]} />
+                    <input
+                        type="date"
+                        name="date"
+                        value={new Date().toISOString().split("T")[0]}
+                        onChange={this.handleChange}
+                        required
+                        max={new Date().toISOString().split("T")[0]}
+                    />
 
                     <label>Product Name: </label>
                     <input type="text" name="pname" value={this.state.pname} onChange={this.handleChange} id="formGroupExampleInput" required />

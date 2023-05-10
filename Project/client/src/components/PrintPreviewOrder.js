@@ -143,7 +143,7 @@ class PrintPreviewOrder extends Component {
                     </div>
                     <div className="add_btn mt-2 mb-2">
                        
-                        <a href="/adminDashboard"><button className='backBtn'>Back to Dashboard</button></a>
+                        <a href="/adminDashboard"><button className='backBtn'> Dashboard</button></a>
                         <a href="/OrderList"><button className='backBtn'> Order List</button></a>
                          <button onClick={this.handlePrint} className='backBtn'>Save </button>
                         <h2><b>Supreme Wine Stores</b></h2>

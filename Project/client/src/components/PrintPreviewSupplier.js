@@ -78,9 +78,10 @@ class PrintPreviewSupplier extends Component  {
                     <div className="add_btn mt-2 mb-2">
                            
                        
-                        <a href="/adminDashboard"><button className='backBtn'>Back to Dashboard</button></a>
+                        <a href="/adminDashboard"><button className='backBtn'> Dashboard</button></a>
                         <a href="/SupplierList"><button className='backBtn'>Supplier List</button></a>
-                         <button onClick={this.handlePrint}  className='backBtn'>Save </button>
+                         <button onClick={this.handlePrint}  className='backBtn'>Save </button><br></br>
+                         <img src="../images/sprmeLogo.png" alt="Supreme Wine Stores logo" />
                         <h2><b>Supreme Wine Stores</b></h2>
                         <p>Address: Supreme Wine Stores, No10,Gamini Road, Galle</p>
                         <p>Phone: 0915676543</p>

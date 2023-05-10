@@ -17,10 +17,11 @@ import SupplierList from './components/SupplierList';
 import AddSupplier from './components/AddSupplier';
 import EditSupplier from './components/EditSupplier';
 import OrderList from './components/OrderList';
-import SupplierMail from './components/SupplierMail';
+// import SupplierMail from './components/SupplierMail';
 import AddOrder from './components/AddOrder';
 import PrintPreviewSupplier from './components/PrintPreviewSupplier';
 import PrintPreviewOrder from './components/PrintPreviewOrder';
+
 
 
 
@@ -51,11 +52,12 @@ export default class App extends Component {
             <Route path="/AddSupplier" exact element={<AddSupplier />} />
             <Route path="/EditSupplier/:id" exact element={<EditSupplier />} />
             <Route path="/OrderList" exact element={<OrderList />} />
-            <Route path="/SupplierMail" exact element={<SupplierMail />} />
+            {/* <Route path="/SupplierMail" exact element={<SupplierMail />} /> */}
             <Route path="/AddOrder" exact element={<AddOrder />} />
             <Route path="/PrintPreviewSupplier" exact element={<PrintPreviewSupplier />} />
             <Route path="/OrderList" exact element={<OrderList />} />
             <Route path="/PrintPreviewOrder" exact element={<PrintPreviewOrder />} />
+           
             
          
 
