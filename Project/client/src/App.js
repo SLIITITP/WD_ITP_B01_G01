@@ -35,27 +35,27 @@ export default class App extends Component {
             <Route path="/contact" exact element={<Contact />} />
             <Route path="/contactAdmin" exact element={<ContactAdmin />} />
 
-   
-          <Route path="/informationForm" exact element={<InformationForm />} />
-          <Route path="/DisplayInfo/:id" exact element={<DisplayInfo />} />
 
-          <Route path="/inventory" exact element={<Inventory />} />
-          <Route path="/inventoryDetail" exact element={<InventoryDetail />} />
-          <Route path="/addProduct" exact element={<AddProduct />} />
-          <Route path="/adminDashboard" exact element={<AdminDashboard />} />
+            <Route path="/informationForm" exact element={<InformationForm />} />
+            <Route path="/DisplayInfo/:id" exact element={<DisplayInfo />} />
 
-          <Route path="/SupplierList" exact element={<SupplierList/>}/>
-          <Route path="/AddSupplier" exact element={<AddSupplier/>}/>
-         <Route path="/EditSupplier/:id" exact element={<EditSupplier/>}/>
+            <Route path="/inventory" exact element={<Inventory />} />
+            <Route path="/inventoryDetail" exact element={<InventoryDetail />} />
+            <Route path="/addProduct" exact element={<AddProduct />} />
+            <Route path="/adminDashboard" exact element={<AdminDashboard />} />
 
-         <Route path="/spirits" exact element={<Spirits />} />
+            <Route path="/SupplierList" exact element={<SupplierList />} />
+            <Route path="/AddSupplier" exact element={<AddSupplier />} />
+            <Route path="/EditSupplier/:id" exact element={<EditSupplier />} />
+
+            <Route path="/spirits" exact element={<Spirits />} />
             <Route path="/categoryDetails" exact element={<Category_details />} />
             <Route path="/cartPage" exact element={<CartPage />} />
 
-          
+
           </Routes>
           {/* <Footer />  */}
-          
+
         </div>
       </BrowserRouter>
     )
