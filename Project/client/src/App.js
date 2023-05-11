@@ -17,6 +17,7 @@ import SupplierList from './components/SupplierList';
 import AddSupplier from './components/AddSupplier';
 import EditSupplier from './components/EditSupplier';
 import PrintPreviewInventory from './components/printPreviewInventory';
+import LoginPage from './components/LoginPage';
 
 
 
@@ -44,7 +45,7 @@ export default class App extends Component {
           <Route path="/adminDashboard" exact element={<AdminDashboard />} />
           <Route path="/editInventory/:id" exact element={<EditInventory />} />
           <Route path="/printPreviewInventory" exact element={<PrintPreviewInventory />} />
-          
+          <Route path="/LoginPage" exact element={<LoginPage />} />
 
           <Route path="/SupplierList" exact element={<SupplierList/>}/>
           <Route path="/AddSupplier" exact element={<AddSupplier/>}/>

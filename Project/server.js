@@ -54,6 +54,10 @@ app.use('/inventoryDetail', inventoryRoutes);
 app.use('/adminDashboard', inventoryRoutes);
 app.use('/editInventory', inventoryRoutes);
 
+const loginRoutes = require('./routes/login');
+app.use('/login', loginRoutes);
+
+
 
 
 

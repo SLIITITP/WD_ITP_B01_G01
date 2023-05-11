@@ -105,3 +105,137 @@ h2{
   white-space: nowrap;
   width: 1px;
 }
+
+.img1{
+  align-items: end;
+  width: 100%;
+ 
+}
+
+.card1{
+  background-color: #FFB400;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: #000000 2px solid;
+}
+
+
+
+.card2{
+  background-color: #FFB400;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: #000000 2px solid;
+}
+
+
+.card3{
+  background-color: #FFB400;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: #000000 2px solid;
+}
+
+.form-control{
+  color: black;
+  font-weight: bold;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: #000000 1px solid;
+  margin-right: 50%;
+  width: 25%;
+  
+}
+
+.table1{
+border: 1px solid black;  
+margin-left: auto;  
+margin-right: auto; 
+margin-top: 10px; 
+border-collapse: collapse;    
+width: 500px;  
+text-align: center;  
+font-size: 20px;  
+}
+
+.th1{
+  border: 1px solid black;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+  
+.th2{
+  border: 1px solid black;
+  padding: 10px;
+  background-color: black;
+  color: white;
+}
+
+.td1{
+  border: 1px solid black;
+  padding: 10px;
+  background-color: #FFB400;
+  color: black;
+  text-align: left;
+}
+
+.td2{
+  border: 1px solid black;
+  padding: 10px;
+  background-color: #FFB400;
+  color: black;
+  
+}
+
+.printth{
+  margin-left: 10px;
+  padding-right: 20px;
+  
+}
+
+h5,h4{
+  font-weight: bold;
+  
+}
+
+.tableimg{
+  margin-top: 10px;
+}
+
+.tdtotal{
+  font-weight: bold;
+  font-size: 1.2rem;
+  
+}
+
+.tdtotal1{
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  
+}
+
