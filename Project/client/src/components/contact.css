@@ -1,6 +1,6 @@
 body {
 	background-color: #FFF0CC;
-	
+
 }
 
 .contact-form {
@@ -10,7 +10,7 @@ body {
 	transform: translate(-50%, -50%);
 	width: 400px;
 	height: 500px;
-    margin-top: 600px;
+	margin-top: 600px;
 	padding: 50px 40px;
 	background: rgba(0, 0, 0, 0.5);
 }
@@ -22,17 +22,20 @@ body {
 	text-align: center;
 	text-transform: uppercase;
 }
+
 .contact-form p {
 	margin: 0;
 	padding: 0;
 	font-weight: bold;
 	color: #fff;
 }
+
 .contact-form input {
 	width: 100%;
 	margin-bottom: 20px;
- }
- .contact-form input {
+}
+
+.contact-form input {
 	border: none;
 	border-bottom: 1px solid #fff;
 	background: transparent;
@@ -54,14 +57,14 @@ body {
 	font-size: 16px;
 }
 
-.contact-form-2{
+.contact-form-2 {
 	position: absolute;
 	top: 50%;
 	left: 67%;
 	transform: translate(-50%, -50%);
 	width: 400px;
 	height: 500px;
-    margin-top: 600px;
+	margin-top: 600px;
 	padding: 50px 40px;
 	background: rgba(0, 0, 0, 0.5);
 }
@@ -73,6 +76,7 @@ body {
 	text-align: center;
 	text-transform: uppercase;
 }
+
 .contact-form-2 p {
 	margin: 0;
 	padding: 0;
@@ -80,35 +84,39 @@ body {
 }
 
 /* contact */
-.container-1 {
+.container-12 {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 400px;
-	height: 500px;
+	height: 630px;
 	padding: 50px 40px;
 	background: rgba(0, 0, 0, 0.5);
+	margin-top: 70px;
 }
-.container-1 h2 {
+
+.container-12 h2 {
 	margin: 0;
 	padding: 0 0 20px;
 	color: #fff;
 	text-align: center;
 	text-transform: uppercase;
 }
-.container-1 p {
+
+.container-12 p {
 	margin: 0;
 	padding: 0;
 	font-weight: bold;
 	color: #fff;
 }
 
-.container-1 input {
+.container-12 input {
 	width: 100%;
 	margin-bottom: 20px;
- }
- .container-1 input {
+}
+
+.container-12 input {
 	border: none;
 	border-bottom: 1px solid #fff;
 	background: transparent;
@@ -119,7 +127,7 @@ body {
 }
 
 
-.container-1 textarea {
+.container-12 textarea {
 	border: none;
 	border-bottom: 1px solid #fff;
 	background: transparent;
@@ -131,11 +139,29 @@ body {
 
 
 /* navbar */
-.nav-link{
+.nav-link {
 	color: black !important;
 	font-size: 20px;
-  }
-  
-  .nav-item{
-	font-size: 20px;
-  }
+}
+
+.nav-item {
+	font-size: 22px;
+}
+
+.btn-contact {
+	background-color: #080808;
+	color: #FFB400;
+	cursor: pointer;
+	font-weight: bold;
+	margin-right: 5px;
+}
+
+.btn-contact-display {
+	background-color: #080808;
+	color: #FFB400;
+	cursor: pointer;
+	font-weight: bold;
+	margin-right: 5px;
+}
+
+

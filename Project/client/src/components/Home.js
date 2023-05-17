@@ -19,7 +19,7 @@ export default function Home() {
               <div class="carousel-caption">
                 <h5>SRI LANKA'S BEST ONLINE LIQUOR STORE</h5>
                 <p>Discover the many sides of single bar.</p>
-                <p><a href="#" class="btn btn-warning mt-3">Shop Now</a></p>
+                <p><a href="/spirits" class="btn btn-warning mt-3">Shop Now</a></p>
               </div>
             </div>
             <div class="carousel-item">
@@ -27,7 +27,7 @@ export default function Home() {
               <div class="carousel-caption">
                 <h5>WINES AND BEERS</h5>
                 <p>Discover the world of fine wines at suprime wine store.</p>
-                <p><a href="#" class="btn btn-warning mt-3">Shop Now</a></p>
+                <p><a href="/spirits" class="btn btn-warning mt-3">Shop Now</a></p>
               </div>
             </div>
             <div class="carousel-item">
@@ -35,7 +35,7 @@ export default function Home() {
               <div class="carousel-caption">
                 <h5>CHECK OUT OUR COLLECTION</h5>
                 <p>Want to stay up-to-date on the latest trends in the beverage world?.</p>
-                <p><a href="#" class="btn btn-warning mt-3">Shop Now</a></p>
+                <p><a href="/spirits" class="btn btn-warning mt-3">Shop Now</a></p>
               </div>
             </div>
           </div>
@@ -69,7 +69,7 @@ export default function Home() {
                 <br />
                 <h2>We Provide the Best Quality <br /> Services Ever</h2><br />
                 <p>Whether you're shopping in-store or online, we're committed to providing a seamless and hassle-free experience. Our goal is to make your beverage shopping as easy and enjoyable as possible.</p><br />
-                <a href="#" class="btn btn-warning">Shop Now</a>
+                <a href="/spirits" class="btn btn-warning">Shop Now</a>
               </div>
             </div>
           </div>
@@ -95,7 +95,7 @@ export default function Home() {
                   <i class="bi bi-laptop"></i>
                   <h3 class="card-title">Spirits</h3>
                   <p class="lead">your online destination for premium spirits! We offer a vast selection of whiskeys, rums, tequilas, gins, and more, all at competitive prices.</p>
-                  <button class="btn bg-warning text-dark">Shop Now</button>
+                  <a href='/spirits'><button class="btn bg-warning text-dark">Shop Now</button></a>
                 </div>
               </div>
             </div>
@@ -105,7 +105,7 @@ export default function Home() {
                   <i class="bi bi-journal"></i>
                   <h3 class="card-title">Wine</h3>
                   <p class="lead">Our online store is the perfect place to find unique and hard-to-find bottles, as well as classic favorites from top wine-producing regions.</p>
-                  <button class="btn bg-warning text-dark">Shop Now</button>
+                  <a href='/spirits'><button class="btn bg-warning text-dark">Shop Now</button></a>
                 </div>
               </div>
             </div>
@@ -115,7 +115,7 @@ export default function Home() {
                   <i class="bi bi-intersect"></i>
                   <h3 class="card-title">Champagne</h3>
                   <p class="lead">Looking for a gift? Our selection of champagnes is perfect for any occasion.We can even add a personalized note to your order </p>
-                  <button class="btn bg-warning text-dark">Shop Now</button>
+                  <a href='/spirits'><button class="btn bg-warning text-dark">Shop Now</button></a>
                 </div>
               </div>
             </div>
@@ -130,14 +130,7 @@ export default function Home() {
               
                
                 <div class="text-center p-3" >
-                    <div class="footerText">
-                  © 2021 Copyright:
-                  
-                  <a class="text-white" href="#"> suprime.com</a>
-                  <a href='/adminDashboard'><button class="adminBtn"><i class="fa-solid fa-user"></i></button></a>
-                </div>
-                
-               
+                    
                   
                   
                 </div>
@@ -157,7 +150,8 @@ export default function Home() {
           <div class="footerText">
             © 2021 Copyright:
 
-            <a class="text-white" href="#"> suprime.com</a>
+            <a class="text-white" href="/spirits"> suprime.com</a>
+            <a href='/LoginPage'><button class="adminBtn"><i class="fa-solid fa-user"></i></button></a>
           </div>
 
 
