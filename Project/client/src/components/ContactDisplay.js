@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { useParams, useLocation } from "react-router-dom";
+import Swal from 'sweetalert2';
 import "./contact.css"
 function withParams(Component) {
   return props => <Component params={useParams()} />
@@ -52,15 +53,10 @@ class ContactDisplay extends Component {
 
     const { name, email, message } = this.state;
 
-    // const data = {
-    //   name: name,
-    //   email: email,
-    //   message: message
-    // }
-    // console.log(data);
 
 
-    let data =  this.state.posts;  
+
+    let data = this.state.posts;
     data = {
       name: name.length != 0 ? name : data.name,
       email: email.length != 0 ? email : data.email,
@@ -68,42 +64,100 @@ class ContactDisplay extends Component {
     }
 
 
-    axios.put(`/contact/post/${id}`, data).then((res) => {
-      if (res.data.success) {
-        console.log(res.data.success._id);
-        alert("Updated Successfully");
-        var id = res.data.success._id
-        //window.location.href=`/contactdisplay/${id}`;
+    //   axios.put(`/contact/post/${id}`, data).then((res) => {
+    //     if (res.data.success) {
+    //       console.log(res.data.success._id);
+    //       alert("Updated Successfully");
+    //       var id = res.data.success._id
+    //       //window.location.href=`/contactdisplay/${id}`;
 
-        this.setState(
-          {
+    //       this.setState(
+    //         {
+    //           name: "",
+    //           email: "",
+    //           message: ""
+    //         }
+    //       )
+    //     }
+    //   })
+
+    // }
+
+    axios.put(`/contact/post/${id}`, data).then((res) => {
+
+      if (res.data.success) {
+        Swal.fire({
+          title: 'Updated Successfully!',
+          text: 'Your changes have been saved.',
+          icon: 'success',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'OK'
+        }).then(() => {
+          this.setState({
             name: "",
             email: "",
             message: ""
-          }
-        )
+
+          });
+
+        });
       }
-    })
-
-  }
-
-
-
-  onDelete = (id) => {
-    if (window.confirm("Are you sure you want to delete this?")) {
-      axios.delete(`/contact/post/${id}`).then((res) => {
-        alert("Delete Successfully");
-        this.retrievePosts();
+    }).catch((error) => {
+      Swal.fire({
+        title: 'Error!',
+        text: 'An error occurred while updating the post. Please try again later.',
+        icon: 'error',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK'
       });
-    }
+    });
   };
+
+
+
+  //  onDelete = (id) => {
+  //   if (window.confirm("Are you sure you want to delete this?")) {
+  //     axios.delete(`/contact/post/${id}`).then((res) => {
+  //       alert("Delete Successfully");
+  //       this.retrievePosts();
+  //     });
+  //   }
+  // };
+
+//   onDelete = (id) => {
+//     Swal.fire({
+//         title: 'Are you sure you want to delete this?',
+//         icon: 'warning',
+//         showCancelButton: true,
+//         confirmButtonColor: '#FFB400',
+//         cancelButtonColor: '#d33',
+//         confirmButtonText: 'Yes, delete it!'
+//     }).then((result) => {
+//         if (result.isConfirmed) {
+//             axios.delete(`/contact/post/${id}`).then((res) => {
+//                 Swal.fire(
+//                     'Deleted!',
+//                     'Your post has been deleted.',
+//                     'success'
+//                 )
+//                 this.retrievePosts();
+//                 window.location.href = `/contactdisplay/${id}`;
+                
+//             });
+//         }
+//     });
+// };
+ 
+  
+  
+  
 
 
   render() {
     const { _id, name, email, message } = this.state.posts;
     return (
 
-      <div className="container-1">
+      <div className="container-12">
 
         <h2>Contact</h2>
         <form>
@@ -120,8 +174,8 @@ class ContactDisplay extends Component {
           <textarea class="form-control" name="message" value={this.state.message}
             onChange={this.handleChange} id="exampleFormControlTextarea1" placeholder={message} rows="3"></textarea>
 
-          <button className="btn-contact-display" type="submit" style={{ marginTop: '15px' }} onClick={() => this.onDelete([_id])}>
-            <i className="fas fa-trash-alt"></i> Delete</button><br />
+          {/* <button className="btn-contact-display" type="submit" style={{ marginTop: '15px' }} onClick={() => this.onDelete([_id])}>
+            <i className="fas fa-trash-alt"></i> Delete</button><br /> */}
 
           <button className="btn-contact-display" type="submit" style={{ marginTop: '15px' }} onClick={this.onSubmit}>
 

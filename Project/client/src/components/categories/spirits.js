@@ -80,6 +80,7 @@ class Spirits extends Component {
                 <p><b>{product.name}</b></p>
                 <img src={product.image} className="img-fluid" style={{ height: "200px", width: "200px" }} />
                 <p>Rs.{product.price}</p>
+                <p>{product.capacity}ml</p>
                 <form onSubmit={(e) => this.onSubmit(e, product)}>
                   <div className="flex-container">
                     <div className="m-1 w-100">

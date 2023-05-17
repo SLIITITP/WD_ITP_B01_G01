@@ -151,7 +151,7 @@ export default function Home() {
             © 2021 Copyright:
 
             <a class="text-white" href="/spirits"> suprime.com</a>
-            <a href='/adminDashboard'><button class="adminBtn"><i class="fa-solid fa-user"></i></button></a>
+            <a href='/LoginPage'><button class="adminBtn"><i class="fa-solid fa-user"></i></button></a>
           </div>
 
 

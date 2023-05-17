@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { useParams, useLocation } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 function withParams(Component) {
     return props => <Component params={useParams()} />
@@ -51,33 +52,90 @@ class cartPage extends Component {
       
 
     //update
-    onSave = (id) => {
-        let data = this.state.cart.filter((cart) => cart._id === id)[0];
-        data.quantity = this.state.quantity;
+    // onSave = (id) => {
+    //     let data = this.state.cart.filter((cart) => cart._id === id)[0];
+    //     data.quantity = this.state.quantity;
 
-        axios.put(`/spirits/post/c/${id}`, data).then((res) => {
-            if (res.data.success) {
-                console.log(res.data.success._id);
-                alert("Updated Successfully");
+    //     axios.put(`/spirits/post/c/${id}`, data).then((res) => {
+    //         if (res.data.success) {
+    //             console.log(res.data.success._id);
+    //             alert("Updated Successfully");
 
-                this.setState({
-                    quantity: ""
-                })
-            }
-        })
+    //             this.setState({
+    //                 quantity: ""
+    //             })
+    //         }
+    //     })
+    // }
+
+// edit
+
+
+onSave = (id) => {
+let data = this.state.cart.filter((cart) => cart._id === id)[0];
+data.quantity = this.state.quantity;
+
+axios.put(`/spirits/post/c/${id}`, data).then((res) => {
+    if (res.data.success) {
+        Swal.fire({
+            title: 'Updated Successfully!',
+            text: 'Your changes have been saved.',
+            icon: 'success',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'OK'
+        }).then(() => {
+            this.setState({
+                quantity: ""
+            });
+        });
     }
+}).catch((error) => {
+    Swal.fire({
+        title: 'Error!',
+        text: 'An error occurred while updating the post. Please try again later.',
+        icon: 'error',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK'
+    });
+});
+};
+
+
 
     //delete
+    // onDelete = (id) => {
+    //     if (window.confirm("Are you sure you want to delete this?")) {
+    //         axios.delete(`spirits/post/c/${id}`).then((res) => {
+    //             alert("Delete Successfully");
+    //             this.retrievePosts();
+    //         }).catch(err => {
+    //             console.log(err);
+    //         });
+    //     }
+    // };
+
     onDelete = (id) => {
-        if (window.confirm("Are you sure you want to delete this?")) {
-            axios.delete(`spirits/post/c/${id}`).then((res) => {
-                alert("Delete Successfully");
-                this.retrievePosts();
-            }).catch(err => {
-                console.log(err);
-            });
-        }
+        Swal.fire({
+            title: 'Are you sure you want to delete this?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#FFB400',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`/spirits/post/c/${id}`).then((res) => {
+                    Swal.fire(
+                        'Deleted!',
+                        'Your post has been deleted.',
+                        'success'
+                    )
+                    this.retrievePosts();
+                });
+            }
+        });
     };
+
 
     handleChange = (event) => {
         this.setState({
@@ -93,7 +151,7 @@ class cartPage extends Component {
 
         return (
             <div className="wrapper">
-                <h1>Shopping Cart</h1>
+                <h1>Add to Cart</h1>
                 <div className="project">
                     <div className="shop">
                         {this.state.cart.map((cart, index) => (
@@ -122,11 +180,11 @@ class cartPage extends Component {
                         ))}
                     </div>
                     <div className="right-bar">
-                        <p><span>Subtotal</span> <span>LKR {subtotal.toFixed(2)}</span></p>
+                        <p><span>Subtotal</span> <span>(LKR) {subtotal.toFixed(2)}</span></p>
                         <hr />
-                        <p><span>Tax ({tax * 100}%)</span> <span>LKR {(subtotal * tax).toFixed(2)}</span></p>
+                        <p><span>Tax ({tax * 100}%)</span> <span>(LKR) {(subtotal * tax).toFixed(2)}</span></p>
                         <hr />
-                        <p><span>Total</span> <span>LKR {total.toFixed(2)}</span></p>
+                        <p><span>Total</span> <span>(LKR) {total.toFixed(2)}</span></p>
                         <a href="/informationForm"><i class="fa fa-shopping-cart"></i>Checkout</a>
                     </div>
                 </div>

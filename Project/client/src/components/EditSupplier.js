@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { useParams, useLocation } from "react-router-dom";
 import "./form.css"
+import Swal from 'sweetalert2';
 function withParams(Component) {
   return props => <Component params={useParams()} />
 }
@@ -14,13 +15,13 @@ class EditSupplier extends Component {
     this.state = {
       id: props.params.id,
       supplier: [],
-      snnname: '',
+      snname: '',
       sname: '',
       address: '',
       email: '',
       website: '',
       phone: '',
-      status:'',
+      status: '',
     };
   }
 
@@ -40,127 +41,120 @@ class EditSupplier extends Component {
   }
 
 
-  //edit 
-  handleChange = (e) => {
-    const { name, value } = e.target;
+// edit
+handleChange = (e) => {
+  const { name, value } = e.target;
 
-    this.setState({
-      ...this.state,
-      [name]: value
-    });
-  }
-  onSubmit = (e) => {
-    e.preventDefault();
-    const id = this.state.id
+  this.setState({
+    ...this.state,
+    [name]: value
+  });
+  this.note = value;
+}
 
-    const {snname, sname, address, email, website, phone,status  } = this.state;
+onSubmit = (e) => {
+  e.preventDefault();
+  const id = this.state.id
 
-    let data =  this.state.supplier;  
-    data = {
-      snname: snname.length != 0 ? snname : data.snname,
-      sname: sname.length != 0 ? sname : data.sname,
-      address: address.length != 0 ? address : data.address,
-      email: email.length != 0 ? email : data.email,
-      website: website.length != 0 ? website : data.website,
-      phone: phone.length != 0 ? phone : data.phone,
-      status: status.length != 0 ? status : data.status
-    }
+  const { snname, sname, address, email, website, phone, status } = this.state;
 
-
-    axios.put(`/EditSupplier/post/${id}`, data).then((res) => {
-      if (res.data.success) {
-        console.log(res.data.success._id);
-        alert("Updated Successfully");
-        var id = res.data.success._id
-        //window.location.href=`/contactdisplay/${id}`;
-
-        this.setState(
-          {
-                snnname: '',
-                sname: '',
-                address: '',
-                email: '',
-                website: '',
-                phone: '',
-                status: '',
-          }
-        )
-      }
-    })
+  let data = this.state.supplier;
+  data = {
+    snname: snname.length != 0 ? snname : data.snname,
+    sname: sname.length != 0 ? sname : data.sname,
+    address: address.length != 0 ? address : data.address,
+    email: email.length != 0 ? email : data.email,
+    website: website.length != 0 ? website : data.website,
+    phone: phone.length != 0 ? phone : data.phone,
+    status: status.length != 0 ? status : data.status,
 
   }
 
+  axios.put(`/EditSupplier/post/${id}`, data).then((res) => {
 
+    if (res.data.success) {
+      Swal.fire({
+        title: 'Updated Successfully!',
+        text: 'Your changes have been saved.',
+        icon: 'success',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'OK'
+      }).then(() => {
+        this.setState({
+          snnname: '',
+          sname: '',
+          address: '',
+          email: '',
+          website: '',
+          phone: '',
+          status: ''
 
-  onDelete = (id) => {
-    if (window.confirm("Are you sure you want to delete this?")) {
-      axios.delete(`/contact/post/${id}`).then((res) => {
-        alert("Delete Successfully");
-        this.retrievePosts();
+        });
+        window.location.href = `/SupplierList`;
       });
     }
-  };
+  }).catch((error) => {
+    Swal.fire({
+      title: 'Error!',
+      text: 'An error occurred while updating the post. Please try again later.',
+      icon: 'error',
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'OK'
+    });
+  });
+};
+
 
 
   render() {
-    
-    const { _id, snname, sname, address, email, website, phone,status  } = this.state.supplier;
+
+    const { _id, snname, sname, address, email, website, phone, status } = this.state.supplier;
     return (
-        <div className='container'>
+      <div className='container'>
+        <a href="/adminDashboard"><button className='backBtn'> Dashboard</button></a>
         <a href="/SupplierList"><button className='backBtn'>Supplier List</button></a>
-        
+
         <form className="create" >
-        <h3>Add New Supplier</h3>
+          <h3>Update Supplier</h3>
 
-        
-        {/* <label>ID: </label>
-        <input type="text" name="_id" value={this.state._id}
-                     onChange={this.handleChange} id="formGroupExampleInput" placeholder={_id}  /> */}
-
+          <label>Supplier Company Name: </label>
+          <input type="text" name="snname" value={this.state.snname}
+            onChange={this.handleChange} id="formGroupExampleInput" placeholder={snname} />
 
 
-        <label>Supplier Company Name: </label>
-        <input type="text" name="snname" value={this.state.snnname}
-                     onChange={this.handleChange} id="formGroupExampleInput" placeholder={snname}  />
-       
+          <label>Supplier Name: </label>
+          <input type="text" name="sname" value={this.state.sname}
+            onChange={this.handleChange} id="formGroupExampleInput" placeholder={sname} />
 
-        <label>Supplier Name: </label>
-        <input type="text" name="sname" value={this.state.sname}
-                     onChange={this.handleChange} id="formGroupExampleInput" placeholder={sname} />
+          <label>Address: </label>
+          <input type="text" name="address" value={this.state.address}
+            onChange={this.handleChange} id="formGroupExampleInput" placeholder={address} />
 
-        <label>Address: </label>
-        <input type="text" name="address" value={this.state.address}
-                     onChange={this.handleChange} id="formGroupExampleInput"placeholder={address}  />
+          <label>Email: </label>
+          <input type="text" name="email" value={this.state.email}
+            onChange={this.handleChange} id="formGroupExampleInput" placeholder={email} />
 
-        <label>Email: </label>
-        <input type="text" name="email" value={this.state.email}
-                     onChange={this.handleChange} id="formGroupExampleInput" placeholder={email}  />
+          <label>Website: </label>
+          <input type="text" name="website" value={this.state.website}
+            onChange={this.handleChange} id="formGroupExampleInput" placeholder={website} />
 
-        <label>Website: </label>
-        <input type="text" name="website" value={this.state.website}
-                     onChange={this.handleChange} id="formGroupExampleInput" placeholder={website} />
+          <label>Phone: </label>
+          <input type="number" name="phone" value={this.state.phone}
+            onChange={this.handleChange} id="formGroupExampleInput" placeholder={phone} />
 
-        <label>Phone: </label>
-        <input type="number" name="phone" value={this.state.phone}
-                     onChange={this.handleChange} id="formGroupExampleInput"  placeholder={phone}/>
+          <label>Status: </label>
+          <input type="text" name="status" value={this.state.status}
+            onChange={this.handleChange} id="formGroupExampleInput" placeholder={status} />
 
-        <label>Status: </label>
-        
-        <select onChange={this.handleChange} id="formGroupExampleInput" value={this.state.status}  name="status" placeholder={status}>
-            <option value="active">Active</option>
-            <option value="Inactive">Inactive</option>
 
-        </select>
+          <center><a href='/SupllierList'><button className='formBtn' type="submit" onClick={this.onSubmit}>Update Supplier</button></a></center>
 
-     
-        <center><a href='/SupllierList'><button className='formBtn' type="submit" onClick={this.onSubmit}>Update Supplier</button></a></center>
 
-        
-        
-    </form>
-    </div>
 
-     
+        </form>
+      </div>
+
+
 
 
 
